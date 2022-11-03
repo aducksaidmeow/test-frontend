@@ -11,6 +11,7 @@ export default function Login() {
             const url = process.env.NODE_ENV === 'production' ? 
                 `${process.env.REACT_APP_API_URL}/api/test` :
                 '/api/test';
+            console.log(url);
             axios.post(url, {}).then(response => {
                 console.log(response.data);
             }).catch(error => console.log(error.message));

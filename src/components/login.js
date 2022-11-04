@@ -9,10 +9,11 @@ export default function Login() {
         onSuccess: codeResponse => {
             console.log(codeResponse);
             const url = process.env.NODE_ENV === 'production' ? 
-                `${process.env.REACT_APP_API_URL}/api/test` :
-                '/api/test';
+                `${process.env.REACT_APP_API_URL}/api/get-token` :
+                '/api/get-token';
             console.log(url);
-            axios.post(url, {}).then(response => {
+            const code = codeResponse.code;
+            axios.post(url, { code }).then(response => {
                 console.log(response.data);
             }).catch(error => console.log(error.message));
         }

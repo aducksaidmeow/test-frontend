@@ -23,6 +23,12 @@ export default function Login() {
                 const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/init` : '/api/init';
                 axios.post(url, { userId, refreshToken }).then(response => {
                     console.log(response.data);
+                    const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/get-role` : '/api/get-role';
+                    axios.post(url, { userId }).then(response => {
+                        const role = response.data;
+                        localStorage.setItem('role', role);
+                        console.log(role);
+                    }).catch(error => console.log(error.message));
                 }).catch(error => console.log(error.message));
             }).catch(error => console.log(error.message));
         }

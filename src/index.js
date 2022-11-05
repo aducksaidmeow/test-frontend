@@ -3,15 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-import Login from './components/login'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import Login from './components/login'
+import AddInfo from './components/addInfo'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
-    <Login />
-  </GoogleOAuthProvider>
+  <BrowserRouter>
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
+      <Routes>
+        <Route path="/test-frontend" element={ <Login /> } />
+        <Route path="/test-frontend/add-info" element={ <AddInfo /> } />
+      </Routes>
+    </GoogleOAuthProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

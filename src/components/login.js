@@ -1,7 +1,6 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-//axios.defaults.withCredentials = true;
 
 export default function Login() {
 
@@ -21,6 +20,10 @@ export default function Login() {
                 localStorage.setItem('email', email);
                 localStorage.setItem('userId', userId);
                 console.log({ refreshToken, email, userId });
+                const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/init` : '/api/init';
+                axios.post(url, { userId, refreshToken }).then(response => {
+                    console.log(response.data);
+                }).catch(error => console.log(error.message));
             }).catch(error => console.log(error.message));
         }
     });

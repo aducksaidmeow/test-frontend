@@ -1,8 +1,11 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+
+    const navigate = useNavigate();
 
     const loginCall = useGoogleLogin({
         flow: 'auth-code',
@@ -28,6 +31,7 @@ export default function Login() {
                         const role = response.data;
                         localStorage.setItem('role', role);
                         console.log(role);
+                        if (role === '') navigate('/add-info');
                     }).catch(error => console.log(error.message));
                 }).catch(error => console.log(error.message));
             }).catch(error => console.log(error.message));

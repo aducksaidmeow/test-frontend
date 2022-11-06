@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import axios from 'axios';
 
 export default function AddInfo() {
 
@@ -6,6 +7,13 @@ export default function AddInfo() {
 
     const onSubmit = data => {
         console.log(data);
+        const role = data.role;
+        localStorage.setItem('role', role);
+        const userId = localStorage.getItem('userId');
+        const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/add-role` : '/api/add-role';
+        axios.post(url, { userId, role }).then(response => {
+            console.log(response.data);
+        }).catch(error => console.log(error.message));
     };
 
     const email = localStorage.getItem('email');

@@ -13,14 +13,18 @@ export default function AddInfo() {
 
     if (email != '' && role === '') {
         return (
-            <div>
-                It worked!
-            </div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <select { ...register("role") } >
+                    <option value="student">student</option>
+                    <option value="teacher">teacher</option>
+                </select>
+                <input type="submit" />
+            </form>
         )
     } else {
         return (
             <div>
-                It didn't worked!
+                <div>Something is wrong!</div>
             </div>
         )
     }

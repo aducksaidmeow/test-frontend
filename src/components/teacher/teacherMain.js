@@ -1,4 +1,6 @@
 import TeacherCalendar from "./teacherCalendar";
+import AddEventPopup from "./addEvent/addEventPopup";
+import AddGroupPopup from "./addGroup/addGroupPopup";
 
 export default function TeacherMain() {
 
@@ -8,6 +10,8 @@ export default function TeacherMain() {
     if (email != '' && email != null && role === 'teacher') {
         return (
             <div>
+                <AddGroupPopup />
+                <AddEventPopup />
                 <TeacherCalendar />
             </div>
         )

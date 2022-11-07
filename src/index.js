@@ -7,6 +7,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Login from './components/login'
 import AddInfo from './components/addInfo'
+import StudentMain from './components/student/studentMain'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,7 @@ root.render(
       <Routes>
         <Route path="/" element={ <Login /> } />
         <Route path="/add-info" element={ <AddInfo /> } />
+        <Route path="/student-calendar" element={ <StudentMain /> } />
       </Routes>
     </GoogleOAuthProvider>
   </HashRouter>

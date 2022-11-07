@@ -18,7 +18,8 @@ export default function AddGroup() {
         data.GroupMember.map((value, index) => {
             groupMember.push(value.gmail);
         });
-        axios.post('/api/add-group', { userId, groupName, groupMember }).then(response => {
+        const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/add-group` : '/api/add-group';
+        axios.post(url, { userId, groupName, groupMember }).then(response => {
             console.log(response.data);
         }).catch(error => console.log(error.message));
     };

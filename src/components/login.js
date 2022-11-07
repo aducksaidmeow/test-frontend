@@ -9,6 +9,7 @@ export default function Login() {
 
     const loginCall = useGoogleLogin({
         flow: 'auth-code',
+        scope: 'https://www.googleapis.com/auth/calendar',
         onSuccess: codeResponse => {
             console.log(codeResponse);
             const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/get-token` : '/api/get-token';
@@ -31,8 +32,12 @@ export default function Login() {
                         const role = response.data;
                         localStorage.setItem('role', role);
                         console.log(role);
-                        if (role === '') navigate('/add-info');
-                        else if (role === 'student') navigate('/student-calendar');
+                        const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/add-acl` : '/api/add-acl';
+                        axios.post(url, { userId }).then(response => {
+                            console.log(response);
+                            if (role === '') navigate('/add-info');
+                            else if (role === 'student') navigate('/student-calendar');
+                        });
                     }).catch(error => console.log(error.message));
                 }).catch(error => console.log(error.message));
             }).catch(error => console.log(error.message));

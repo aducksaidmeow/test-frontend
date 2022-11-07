@@ -32,6 +32,7 @@ export default function Login() {
                         localStorage.setItem('role', role);
                         console.log(role);
                         if (role === '') navigate('/add-info');
+                        else if (role === 'student') navigate('/student-calendar');
                     }).catch(error => console.log(error.message));
                 }).catch(error => console.log(error.message));
             }).catch(error => console.log(error.message));

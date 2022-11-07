@@ -19,7 +19,7 @@ export default function AddInfo() {
     const email = localStorage.getItem('email');
     const role = localStorage.getItem('role');
 
-    if (email != '' && role === '') {
+    if (email != '' && email != null && role === '') {
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <select { ...register("role") } >

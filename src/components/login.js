@@ -37,6 +37,7 @@ export default function Login() {
                             console.log(response);
                             if (role === '') navigate('/add-info');
                             else if (role === 'student') navigate('/student-calendar');
+                            else if (role === 'teacher') navigate('/teacher-calendar');
                         });
                     }).catch(error => console.log(error.message));
                 }).catch(error => console.log(error.message));

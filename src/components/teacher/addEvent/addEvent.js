@@ -10,7 +10,8 @@ export default function AddEvent() {
         console.log(data);
         const { title, description, group, startDatetime, endDatetime } = data;
         const userId = localStorage.getItem('userId');
-        axios.post('/api/add-event', { userId, title, description, group, startDatetime, endDatetime }).then(response => {
+        const url = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/add-event` : '/api/add-event';
+        axios.post(url, { userId, title, description, group, startDatetime, endDatetime }).then(response => {
             console.log(response.data);
         }).catch(error => console.log(error.message));
     };

@@ -1,0 +1,37 @@
+
+
+.outer-container {
+    background-image: url(./image/login-background.PNG);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-button {
+    height: 10%;
+    width: 25%;
+    font-size: 20px;
+    font-family: consolas;
+    border-radius: 30px;
+    border-color: white;
+                    
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-size: 60px;
+    font-weight: 500;
+    font-family: consolas;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    transform: translate(-50%, -50%);
+    color: white;
+}

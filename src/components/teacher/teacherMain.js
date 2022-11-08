@@ -10,8 +10,8 @@ export default function TeacherMain() {
     if (email != '' && email != null && role === 'teacher') {
         return (
             <div>
-                <AddGroupPopup />
-                <AddEventPopup />
+                {/*<AddGroupPopup />*/}
+                {/*<AddEventPopup />*/}
                 <TeacherCalendar />
             </div>
         )

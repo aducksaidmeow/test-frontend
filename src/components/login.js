@@ -2,6 +2,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
+import './login.css'
 
 export default function Login() {
 
@@ -46,10 +47,10 @@ export default function Login() {
     });
 
     return (
-        <div>
-            <h1>Login to continue!</h1>
-            <button onClick={() => loginCall()}>
-                Sign in with Google
+        <div className="outer-container">
+            <h1 className="title">Login to continue!</h1>
+            <button className="login-button" onClick={() => loginCall()}>
+                Sign in with Google 🔎
             </button>
         </div>
     );

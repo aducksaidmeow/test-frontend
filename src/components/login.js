@@ -47,11 +47,13 @@ export default function Login() {
     });
 
     return (
-        <div className="outer-container">
-            <h1 className="title">Login to continue!</h1>
-            <button className="login-button" onClick={() => loginCall()}>
-                Sign in with Google 🔎
-            </button>
+        <div className="login-container">
+            <h1 className="login-title">
+                Login to continue!
+                <button className="login-button" onClick={() => loginCall()}>
+                    Sign in with Google 🔎
+                </button>
+            </h1>
         </div>
     );
 }

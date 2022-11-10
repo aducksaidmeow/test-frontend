@@ -47,7 +47,7 @@ export default function Login() {
     });
 
     return (
-        <div className="login-container">
+        <div className="login-background">
             <h1 className="login-title">
                 Login to continue!
                 <button className="login-button" onClick={() => loginCall()}>

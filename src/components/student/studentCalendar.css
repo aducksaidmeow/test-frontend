@@ -1,0 +1,8 @@
+.student-calendar-container {
+    position: absolute;
+    width: 90vw;
+    height: 90vh;
+    top: 3vh;
+    left: 5vw;
+    font-family: consolas;
+}

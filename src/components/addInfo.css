@@ -10,7 +10,7 @@
 
 .role-title {
     position: relative;
-    top: 34vh;
+    top: 30vh;
     left: 28vw;
     font-size: 3vw;
     font-family: consolas;
@@ -26,7 +26,7 @@
     font-family: consolas;
     font-size: 2vw;       
     position: relative;
-    top: 40vh;
+    top: 30vh;
     left: 25vw;
 }
 
@@ -38,6 +38,6 @@
     font-family: consolas;
     font-size: 2vw;       
     position: relative;
-    top: 40vh;
+    top: 30vh;
     left: 40vw;
 }

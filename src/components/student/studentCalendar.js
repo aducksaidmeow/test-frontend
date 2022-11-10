@@ -23,11 +23,13 @@ export default class StudentCalendar extends React.Component {
 import React from "react";
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
+import googleCalendarPlugin from '@fullcalendar/google-calendar'
+import './studentCalendar.css'
 
 export default class StudentCalendar extends React.Component {
   render() {
     return (
+      <div className="student-calendar-container">
         <FullCalendar 
           plugins={[dayGridPlugin, googleCalendarPlugin]}
           initialView='dayGridMonth'
@@ -37,6 +39,7 @@ export default class StudentCalendar extends React.Component {
           }}
           contentHeight="auto"
         />
+      </div>
     );
   }
 }

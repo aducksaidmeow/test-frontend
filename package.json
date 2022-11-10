@@ -4,7 +4,9 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "dependencies": {
-    "@ericz1803/react-google-calendar": "^4.2.2",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/google-calendar": "^5.11.3",
+    "@fullcalendar/react": "^5.11.2",
     "@react-oauth/google": "^0.4.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

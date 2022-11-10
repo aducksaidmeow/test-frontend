@@ -39,10 +39,12 @@ export default function AddInfo() {
 
     if (email != '' && email != null && role === '') {
         return (
-            <div className="add-info-container">
-                <h1 className="role-title">Choose a role to continue</h1>
-                <button className="student" onClick={() => onClick("student")}>Student</button>
-                <button className="teacher" onClick={() => onClick("teacher")}>Teacher</button> 
+            <div className="add-info-background">
+                <div className="add-info-container">
+                    <h1 className="role-title">Choose a role to continue</h1>
+                    <button className="student" onClick={() => onClick("student")}>Student</button>
+                    <button className="teacher" onClick={() => onClick("teacher")}>Teacher</button> 
+                </div>
             </div>
         )
     } else {

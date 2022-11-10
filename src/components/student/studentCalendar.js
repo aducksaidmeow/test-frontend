@@ -38,6 +38,8 @@ export default class StudentCalendar extends React.Component {
             googleCalendarId: localStorage.getItem('email')
           }}
           contentHeight="auto"
+          eventDisplay="block"
+          eventColor="#87CEEB"
         />
       </div>
     );

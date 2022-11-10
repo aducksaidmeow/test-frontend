@@ -35,9 +35,11 @@ export default class TeacherCalendar extends React.Component {
           initialView='dayGridMonth'
           googleCalendarApiKey={process.env.REACT_APP_API_KEY}
           events={{
-            googleCalendarId: localStorage.getItem('email')
+            googleCalendarId: localStorage.getItem('email'),
           }}
           contentHeight="auto"
+          eventDisplay="block"
+          eventColor="#87CEEB"
         />
       </div>
     );

@@ -36,6 +36,7 @@ export default class TeacherCalendar extends React.Component {
           events={{
             googleCalendarId: localStorage.getItem('email')
           }}
+          contentHeight="auto"
         />
       </div>
     );

@@ -1,4 +1,4 @@
-import TeacherCalendar from "./teacherCalendar";
+import TeacherCalendar from "./calendar/teacherCalendar";
 import AddEventPopup from "./addEvent/addEventPopup";
 import AddGroupPopup from "./addGroup/addGroupPopup";
 

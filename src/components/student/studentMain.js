@@ -1,4 +1,4 @@
-import StudentCalendar from "./studentCalendar";
+import StudentCalendar from "./calendar/studentCalendar";
 
 export default function TeacherMain() {
 

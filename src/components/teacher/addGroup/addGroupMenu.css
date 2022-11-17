@@ -11,7 +11,7 @@
 
 .group-name {
     position: relative;
-    top: 5vh;
+    top: 0vh;
     left: 15vw;
     height: 5vh;
     width: 25vw;
@@ -23,8 +23,8 @@
 
 .group-member-name {
     position: relative;
-    margin-top: 1.5vh;
-    top: 6vh;
+    margin-top: 2vh;
+    top: 0vh;
     left: 15vw;
     height: 4vh;
     width: 25vw;
@@ -38,7 +38,7 @@
     position: relative;
     display: inline-block;
     left: 20vw;
-    top: 6vh;
+    top: 0.5vh;
     height: 4vh;
     width: 10vw;
     text-align: center;
@@ -50,7 +50,7 @@
 
 .add-member {
     position: relative;
-    top: 10vh;
+    top: 5vh;
     left: 17.5vw;
     height: 5vh;
     width: 20vw;
@@ -64,7 +64,7 @@
 
 .add-group-submit {
     position: relative;
-    top: 15vh;
+    top: 10vh;
     left: 22.5vw;
     height: 5vh;
     width: 10vw;
@@ -76,7 +76,7 @@
 
 .add-group-close-button {
     position: relative;
-    top: -21vh;
+    top: 0vh;
     left: 57vw;
     height: 5vh;
     width: 2.5vw;

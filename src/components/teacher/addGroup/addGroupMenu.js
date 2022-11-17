@@ -46,6 +46,7 @@ export default function AddGroupMenu({ open, setOpen }) {
 
     return (
         <div className="add-group-form-container">
+            <div className="add-group-close-button" onClick={() => setOpen(false)}>x</div>
             <form onSubmit={(e) => onSubmit(e)}>
                 <input className="group-name" type="text" value={groupName} required onChange={(e) => onChangeName(e)} />
                 { groupMember.map((value, index) => {
@@ -59,7 +60,7 @@ export default function AddGroupMenu({ open, setOpen }) {
                 })}
                 <input type="submit" className="add-group-submit" />
             </form>
-            <div className="add-group-close-button" onClick={() => setOpen(false)}>x</div>
+            
         </div>
     );
 }

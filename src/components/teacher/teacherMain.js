@@ -1,5 +1,5 @@
 import TeacherCalendar from "./calendar/teacherCalendar";
-import AddEventPopup from "./addEvent/addEventPopup";
+import AddEventButton from "./addEvent/addEventButton";
 import AddGroupButton from "./addGroup/addGroupButton";
 
 export default function TeacherMain() {
@@ -11,7 +11,7 @@ export default function TeacherMain() {
         return (
             <div>
                 <AddGroupButton />
-                {/*<AddEventPopup />*/}
+                <AddEventButton />
                 <TeacherCalendar />
             </div>
         )

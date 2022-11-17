@@ -1,0 +1,90 @@
+.add-group-form-container {
+    position: relative;
+    top: -10vh;
+    left: 20vw;
+    height: 80vh;
+    width: 130vh;
+    background-color: #CDF0EA;
+    border-radius: 10px;
+    z-index: 3
+}
+
+.group-name {
+    position: relative;
+    top: 5vh;
+    left: 15vw;
+    height: 5vh;
+    width: 25vw;
+    font-family: consolas;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 10px;
+}
+
+.group-member-name {
+    position: relative;
+    margin-top: 1.5vh;
+    top: 6vh;
+    left: 15vw;
+    height: 4vh;
+    width: 25vw;
+    font-family: consolas;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 10px;
+}
+
+.remove-member {
+    position: relative;
+    display: inline-block;
+    left: 20vw;
+    top: 6vh;
+    height: 4vh;
+    width: 10vw;
+    text-align: center;
+    line-height: 25px;
+    font-family: consolas;
+    background-color: #DC3535;
+    border-radius: 20px;
+}
+
+.add-member {
+    position: relative;
+    top: 10vh;
+    left: 17.5vw;
+    height: 5vh;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: consolas;
+    background-color: #B6E2A1;
+    border-radius: 20px;
+}
+
+.add-group-submit {
+    position: relative;
+    top: 15vh;
+    left: 22.5vw;
+    height: 5vh;
+    width: 10vw;
+    font-family: consolas;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 10px;
+}
+
+.add-group-close-button {
+    position: relative;
+    top: -21vh;
+    left: 57vw;
+    height: 5vh;
+    width: 2.5vw;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #DC3535;
+    border-radius: 10px;
+}

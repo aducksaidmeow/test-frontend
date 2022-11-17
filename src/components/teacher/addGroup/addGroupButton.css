@@ -1,0 +1,17 @@
+.add-group-container {
+    position: absolute;
+    top: 10vh;
+    left: 1vw;
+    z-index: 2;
+}
+
+.group-menu-button {
+    height: 10vh;
+    width: 5.15vw;
+    background-image: url(./people.png);
+    background-size: 70px 70px;
+    background-position: 0px -5px;
+    background-color: #BCCEF8;
+    border: none;
+    border-radius: 10px;
+}

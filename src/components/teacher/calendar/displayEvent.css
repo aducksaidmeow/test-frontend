@@ -1,0 +1,42 @@
+.display-event-container {
+    position: relative;
+    top: 10.5vh;
+    left: 21vw;
+    height: 80vh;
+    width: 60vw;
+    background-color: #CDF0EA;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.display-event-close-button {
+    position: relative;
+    margin-bottom: -2.5vh;
+    top: 0vh;
+    left: 57.5vw;
+    height: 5vh;
+    width: 2.5vw;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #DC3535;
+    border-radius: 10px;
+}
+
+.display-event-title, .display-event-description, .display-event-group, .display-event-start-time, .display-event-end-time, .display-event-id {
+    position: relative;
+    display: flex;
+    margin-top: 5vh;
+    top: 0vh;
+    left: 17.5vw;
+    height: 7vh;
+    width: 25vw;
+    font-family: consolas;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 10px;
+}

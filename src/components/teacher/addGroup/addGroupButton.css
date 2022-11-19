@@ -11,8 +11,9 @@
     height: 10vh;
     width: 5.15vw;
     background-image: url(./people.png);
-    background-size: 70px 70px;
-    background-position: 0px -5px;
+    background-size: 50px 50px;
+    background-position: 11.5px 4.5px;
+    background-repeat: no-repeat;
     background-color: #BCCEF8;
     border: none;
     border-radius: 10px;

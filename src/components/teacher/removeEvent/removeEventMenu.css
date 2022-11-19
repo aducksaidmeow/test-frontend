@@ -1,0 +1,48 @@
+.remove-event-form-container {
+    position: relative;
+    top: -25vh;
+    left: 20vw;
+    height: 27.5vh;
+    width: 60vw;
+    background-color: #CDF0EA;
+    border-radius: 10px;
+}
+
+.remove-event-close-button {
+    position: relative;
+    top: 0vh;
+    left: 57.5vw;
+    height: 5vh;
+    width: 2.5vw;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #DC3535;
+    border-radius: 10px;
+}
+
+.event-id {
+    position: relative;
+    height: 5vh;
+    width: 30vw;
+    left: 7.5vw;
+    display: inline-block;
+    margin-top: 5vh;
+    font-family: consolas;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 10px;
+}
+
+.remove-event-submit-button {
+    position: relative;
+    height: 5vh;
+    width: 10vw;
+    left: 10vw;
+    font-family: consolas;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 10px;
+}

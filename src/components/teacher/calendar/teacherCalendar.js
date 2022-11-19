@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FullCalendar, { formatDate } from '@fullcalendar/react'
+import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import googleCalendarPlugin from '@fullcalendar/google-calendar'
 import DisplayEvent from "./displayEvent";
@@ -35,7 +35,7 @@ export default function TeacherCalendar() {
                 const eventContent = {
                   title: eventInfo.event.title,
                   description: response.data.data.description,
-                  group: response.data.data.extendedProperties.private.groupName,
+                  group: response.data.data.extendedProperties.shared.groupName,
                   startTime: eventInfo.event.start,
                   endTime: eventInfo.event.end,
                   id: response.data.data.id

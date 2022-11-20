@@ -48,11 +48,11 @@ export default function AddGroupMenu({ open, setOpen }) {
         <div className="add-group-form-container">
             <div className="add-group-close-button" onClick={() => setOpen(false)}>x</div>
             <form onSubmit={(e) => onSubmit(e)}>
-                <input className="group-name" type="text" value={groupName} required onChange={(e) => onChangeName(e)} />
+                <input className="group-name" type="text" value={groupName} placeholder="Enter group name" required onChange={(e) => onChangeName(e)} />
                 { groupMember.map((value, index) => {
                     return (
                         <div key={index} className="member-container">
-                            <input key={index} className="group-member-name" type="text" value={value} required onChange={(e) => onChangeMember(e, index)} />
+                            <input key={index} className="group-member-name" type="text" value={value} placeholder="Enter member email" required onChange={(e) => onChangeMember(e, index)} />
                             { index > 0 && <div className="remove-member" onClick={() => removeMember(index)}>remove member</div> }
                             { index === groupMember.length - 1 && <div className="add-member" onClick={() => addMember()}>add new member</div> }
                         </div>

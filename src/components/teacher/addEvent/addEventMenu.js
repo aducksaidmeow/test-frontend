@@ -30,9 +30,9 @@ export default function AddEventMenu({ open, setOpen }) {
         <div className="add-event-form-container">
             <div className="add-event-close-button" onClick={() => setOpen(false)}>x</div>
             <form onSubmit={(e) => onSubmit(e)}>
-                <input className="add-event-title" type="text" onChange={(e) => onChange(e, title, setTitle)} required />
-                <input className="add-event-description" type="text" onChange={(e) => onChange(e, description, setDescription)} required />
-                <input className="add-event-group" type="text" onChange={(e) => onChange(e, group, setGroup)} required />
+                <input className="add-event-title" type="text" placeholder="Event title" onChange={(e) => onChange(e, title, setTitle)} required />
+                <input className="add-event-description" type="text" placeholder="Event description" onChange={(e) => onChange(e, description, setDescription)} required />
+                <input className="add-event-group" type="text" placeholder="Group name" onChange={(e) => onChange(e, group, setGroup)} required />
                 <input className="add-event-start-time" type="datetime-local" onChange={(e) => onChange(e, startTime, setStartTime)} required />
                 <input className="add-event-end-time" type="datetime-local" onChange={(e) => onChange(e, endTime, setEndTime)} required />
                 <input className="add-event-submit" type="submit" required />

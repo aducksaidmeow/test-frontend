@@ -6,4 +6,19 @@
     left: 5vw;
     font-family: consolas;
     box-shadow: 0 3px 20px rgb(0 0 0 / 0.2);
+    overflow-y: auto;
+}
+
+.student-calendar-container::-webkit-scrollbar {
+    width: 0px;
+}
+
+.student-calendar-container::-webkit-scrollbar-track {
+    background-color: #fafafa;
+    border: none;
+}
+
+.student-calendar-container::-webkit-scrollbar-thumb{
+    background-color: #B2B2B2;
+    border-radius: 50px;
 }

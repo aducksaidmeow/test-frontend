@@ -1,46 +1,46 @@
 .add-info-background {
-    background-image: url(./login-background.PNG);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
+  background-image: url(./login-background.PNG);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
 }
 
 .add-info-container {
-    position: absolute;
+  position: absolute;
 }
 
 .role-title {
-    position: relative;
-    top: 30vh;
-    left: 28vw;
-    font-size: 3vw;
-    font-family: consolas;
-    color: white;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  position: relative;
+  top: 30vh;
+  left: 28vw;
+  font-size: 3vw;
+  font-family: consolas;
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .student {
-    height: 10vh;
-    width: 15vw;
-    border-radius: 30px;
-    border-color: white;
-    font-family: consolas;
-    font-size: 2vw;       
-    position: relative;
-    top: 30vh;
-    left: 25vw;
+  height: 10vh;
+  width: 15vw;
+  border-radius: 30px;
+  border-color: white;
+  font-family: consolas;
+  font-size: 2vw;
+  position: relative;
+  top: 30vh;
+  left: 25vw;
 }
 
 .teacher {
-    height: 10vh;
-    width: 15vw;
-    border-radius: 30px;
-    border-color: white;
-    font-family: consolas;
-    font-size: 2vw;       
-    position: relative;
-    top: 30vh;
-    left: 40vw;
+  height: 10vh;
+  width: 15vw;
+  border-radius: 30px;
+  border-color: white;
+  font-family: consolas;
+  font-size: 2vw;
+  position: relative;
+  top: 30vh;
+  left: 40vw;
 }

@@ -1,0 +1,12 @@
+.add-info-loading-screen-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #eaf6f6;
+  font-size: 3vw;
+  font-family: consolas;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}

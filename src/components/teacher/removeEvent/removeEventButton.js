@@ -1,15 +1,25 @@
-import React, { useState } from "react";
-import RemoveEventMenu from "./removeEventMenu";
-import './removeEventButton.css'
+import React from 'react';
+import removeEvent from "./remove-event.png"
 
-export default function RemoveEventButton() {
+export default function RemoveEventButton({ render, setRender}) {
 
-    const [open, setOpen] = useState(false);
+    const onClick = () => {
+        setRender({
+            loading: false,
+            calendar: false,
+            display: false,
+            addEvent: false,
+            addGroup: false,
+            removeEvent: true,
+        })
+    }
 
     return (
-        <div className="remove-event-container">
-            <div className="remove-event-menu-button" onClick={() => setOpen(true)}/>
-            { open && <RemoveEventMenu open={open} setOpen={setOpen}/> }
-        </div>
+        <>
+            <button className="h-[11.5vh] w-[5.5vw] rounded-md bg-[#E97777] flex justify-center items-center hover:translate-x-[1.5vw]"
+            onClick={() => onClick()}>
+                <img src={removeEvent} className="h-[9vh] w-[4vw]"/>
+            </button>
+        </> 
     );
 }

@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
-import AddEventMenu from './addEventMenu';
-import './addEventButton.css'
+import React from 'react';
+import addEvent from "./add-event.png"
 
-export default function AddEventButton() {
+export default function AddEventButton({ render, setRender}) {
 
-    const [open, setOpen] = useState(false);
+    const onClick = () => {
+        setRender({
+            loading: false,
+            calendar: false,
+            display: false,
+            addEvent: true,
+            addGroup: false,
+            removeEvent: false,
+        })
+    }
 
     return (
-        <div className="add-event-container">
-            <button className="event-menu-button" onClick={() => setOpen(true)} />
-            { open && <AddEventMenu open={open} setOpen={setOpen} /> }
-        </div>
+        <>
+            <button className="h-[11.5vh] w-[5.5vw] rounded-md bg-[#B8E8FC] flex justify-center items-center hover:translate-x-[1.5vw]"
+            onClick={() => onClick()}>
+                <img src={addEvent} className="h-[9vh] w-[4vw]"/>
+            </button>
+        </> 
     );
 }

@@ -11,6 +11,14 @@ export default function TeacherCalendar({ render, setRender, display, setDisplay
     const eid = eventInfo.event.url.split("=")[1];
     const userId = localStorage.getItem("userId");
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-event` : "/api/get-event";
+    setRender({
+      loading: true,
+      calendar: false,
+      display: false,
+      addEvent: false,
+      addGroup: false,
+      removeEvent: false,
+    })
     axios.post(url, { userId, eid }).then((response) => {
       setDisplay({
         title: eventInfo.event.title,

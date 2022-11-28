@@ -10,8 +10,23 @@ export default function AddGroupMenu({ render, setRender}) {
     e.preventDefault();
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-group` : "/api/add-group";
     const userId = localStorage.getItem("userId");
+    setRender({
+      loading: true,
+      calendar: false,
+      display: false,
+      addEvent: false,
+      addGroup: false,
+      removeEvent: false,
+    })
     axios.post(url, { userId, groupName, groupMember }).then((response) => {
-      
+      setRender({
+        loading: false,
+        calendar: true,
+        display: false,
+        addEvent: false,
+        addGroup: false,
+        removeEvent: false,
+      })
     }).catch((error) => console.log(error));
   };
 
@@ -41,58 +56,6 @@ export default function AddGroupMenu({ render, setRender}) {
     }
   };
 
-  /*return (
-    <div className="add-group-form-container">
-      {!loading && (
-        <div className="add-group-close-button" onClick={() => setOpen(false)}>
-          x
-        </div>
-      )}
-      {!loading && (
-        <form onSubmit={(e) => onSubmit(e)}>
-          <input
-            className="group-name"
-            type="text"
-            value={groupName}
-            placeholder="Enter group name"
-            required
-            onChange={(e) => onChangeName(e)}
-          />
-          {groupMember.map((value, index) => {
-            return (
-              <div key={index} className="member-container">
-                <input
-                  key={index}
-                  className="group-member-name"
-                  type="text"
-                  value={value}
-                  placeholder="Enter member email"
-                  required
-                  onChange={(e) => onChangeMember(e, index)}
-                />
-                {index > 0 && (
-                  <div
-                    className="remove-member"
-                    onClick={() => removeMember(index)}
-                  >
-                    remove member
-                  </div>
-                )}
-                {index === groupMember.length - 1 && (
-                  <div className="add-member" onClick={() => addMember()}>
-                    add new member
-                  </div>
-                )}
-              </div>
-            );
-          })}
-          <input type="submit" className="add-group-submit" />
-        </form>
-      )}
-      {loading && <LoadingScreen />}
-    </div>
-  );*/
-
   const onClick = () => {
     setRender({
       loading: false,
@@ -113,7 +76,7 @@ export default function AddGroupMenu({ render, setRender}) {
               className="h-[7vh] w-[20vw] rounded-md"
               type="text"
               value={groupName}
-              placeholder="Enter group name"
+              placeholder=" Enter group name"
               required
               onChange={(e) => onChangeName(e)}
           />
@@ -124,7 +87,7 @@ export default function AddGroupMenu({ render, setRender}) {
                   key={index} 
                   className="h-[7vh] w-[20vw] rounded-md"
                   type="text"
-                  placeholder="Enter member email"
+                  placeholder=" Enter member email"
                   required
                   onChange={(e) => onChangeMember(e, index)}
                 />

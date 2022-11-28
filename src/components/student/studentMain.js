@@ -5,11 +5,9 @@ export default function TeacherMain() {
     const email = localStorage.getItem('email');
     const role = localStorage.getItem('role');
 
-    if (email != '' && email != null && role === 'student') {
+    if (email !== '' && email != null && role === 'student') {
         return (
-            <div>
-                <StudentCalendar />
-            </div>
+            <StudentCalendar />
         )
     } else {
         return (

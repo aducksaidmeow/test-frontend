@@ -3,9 +3,8 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import googleCalendarPlugin from "@fullcalendar/google-calendar";
 import DisplayEvent from "./displayEvent";
-import LoadingScreen from "./loadingScreen/loadingScreen";
 import axios from "axios";
-import "./studentCalendar.css";
+import spinner from "./spinner.gif"
 
 export default function StudentCalendar() {
   const [open, setOpen] = useState(false);
@@ -14,38 +13,29 @@ export default function StudentCalendar() {
 
   const eventClick = (eventInfo) => {
     eventInfo.jsEvent.preventDefault();
-    console.log(eventInfo);
     setLoading(true);
     const eid = eventInfo.event.url.split("=")[1];
     const userId = localStorage.getItem("userId");
-    const url =
-      process.env.NODE_ENV === "production"
-        ? `${process.env.REACT_APP_API_URL}/api/get-event`
-        : "/api/get-event";
-    axios
-      .post(url, { userId, eid })
-      .then((response) => {
-        console.log(response.data);
-        const eventContent = {
-          title: eventInfo.event.title,
-          description: response.data.data.description,
-          group: response.data.data.extendedProperties.shared.groupName,
-          startTime: eventInfo.event.start,
-          endTime: eventInfo.event.end,
-          id: response.data.data.id,
-        };
-        setContent(eventContent);
-        setLoading(false);
-        setOpen(true);
-        console.log(content);
-      })
-      .catch((error) => console.log(error));
+    const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-event` : "/api/get-event";
+    axios.post(url, { userId, eid }).then((response) => {
+      const eventContent = {
+        title: eventInfo.event.title,
+        description: response.data.data.description,
+        group: response.data.data.extendedProperties.shared.groupName,
+        startTime: eventInfo.event.start,
+        endTime: eventInfo.event.end,
+        id: response.data.data.id,
+      };
+      setContent(eventContent);
+      setLoading(false);
+      setOpen(true);
+    }).catch((error) => console.log(error));
   };
 
   return (
-    <div>
-      <div className="student-calendar-container">
-        {!loading && (
+    <div className="h-screen flex justify-center items-center bg-[#F0EBE3]">
+      {!loading && !open &&
+        <div className="h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#EEEEEE]">
           <FullCalendar
             plugins={[dayGridPlugin, googleCalendarPlugin]}
             initialView="dayGridMonth"
@@ -55,20 +45,21 @@ export default function StudentCalendar() {
             }}
             contentHeight="auto"
             eventDisplay="block"
-            eventColor="#87CEEB"
+            eventColor="#066163"
             eventClick={(eventInfo) => eventClick(eventInfo)}
           />
-        )}
-      </div>
-      {open && (
-        <DisplayEvent
-          open={open}
-          setOpen={setOpen}
-          content={content}
-          setContent={setContent}
-        />
-      )}
-      {loading && <LoadingScreen />}
+        </div>
+      }
+      {loading && 
+        <div className="flex justify-center items-center h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#EEEEEE]">
+          <img src={spinner}/>
+        </div>
+      }
+      {open && 
+        <div className="flex justify-center items-center h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#EEEEEE]">
+          <DisplayEvent open={open} setOpen={setOpen} content={content} setContent={setContent} />
+        </div>
+      }
     </div>
   );
 }

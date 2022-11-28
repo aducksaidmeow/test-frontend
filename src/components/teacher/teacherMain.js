@@ -3,10 +3,11 @@ import TeacherCalendar from "./calendar/teacherCalendar";
 import AddEventButton from "./addEvent/addEventButton";
 import AddGroupButton from "./addGroup/addGroupButton";
 import RemoveEventButton from "./removeEvent/removeEventButton";
-import DisplayEvent from "./calendar/displayEvent"
+import DisplayEvent from "./displayEvent/displayEvent"
 import AddEventMenu from "./addEvent/addEventMenu";
 import AddGroupMenu from "./addGroup/addGroupMenu"
 import RemoveEventMenu from "./removeEvent/removeEventMenu";
+import LoadingScreen from "./loadingScreen/loadingScreen";
 
 export default function TeacherMain() {
 
@@ -47,6 +48,9 @@ export default function TeacherMain() {
                     }
                     {render.removeEvent &&
                         <RemoveEventMenu render={render} setRender={setRender} />
+                    }
+                    {render.loading && 
+                        <LoadingScreen />
                     }
                 </div>
             </div>

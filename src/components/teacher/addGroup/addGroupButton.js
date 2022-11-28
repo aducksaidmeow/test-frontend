@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
-import AddGroupMenu from './addGroupMenu'
-import './addGroupButton.css'
+import React from 'react';
+import addGroup from "./add-group.png"
 
-export default function AddGroupButton() {
+export default function AddGroupButton({ render, setRender}) {
 
-    const [open, setOpen] = useState(false);
+    const onClick = () => {
+        setRender({
+            loading: false,
+            calendar: false,
+            display: false,
+            addEvent: false,
+            addGroup: true,
+            removeEvent: false,
+          })
+    }
 
     return (
-        <div className="add-group-container">
-            <button className="group-menu-button" onClick={() => setOpen(true)} />
-            { open && <AddGroupMenu open={open} setOpen={setOpen} /> }
-        </div>  
+        <>
+            <button className="h-[11.5vh] w-[5.5vw] rounded-md bg-[#F3C5C5] flex justify-center items-center hover:translate-x-[1.5vw]"
+            onClick={() => onClick()}>
+                <img src={addGroup} className="h-[9vh] w-[4vw]"/>
+            </button>
+        </> 
     );
 }

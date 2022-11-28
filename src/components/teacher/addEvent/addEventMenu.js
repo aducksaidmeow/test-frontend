@@ -12,8 +12,23 @@ export default function AddEventMenu({ render, setRender }) {
     e.preventDefault();
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-event` : "/api/add-event";
     const userId = localStorage.getItem("userId");
+    setRender({
+      loading: true,
+      calendar: false,
+      display: false,
+      addEvent: false,
+      addGroup: false,
+      removeEvent: false,
+    })
     axios.post(url, { userId, title, description, group, startTime, endTime }).then((response) => {
-
+      setRender({
+        loading: false,
+        calendar: true,
+        display: false,
+        addEvent: false,
+        addGroup: false,
+        removeEvent: false,
+      })
     }).catch((error) => console.log(error));
   };
 
@@ -21,50 +36,6 @@ export default function AddEventMenu({ render, setRender }) {
     e.preventDefault();
     setValue(e.target.value);
   };
-
-  /*return (
-    <div className="add-event-form-container">
-        <div className="add-event-close-button" onClick={() => setOpen(false)}>
-          x
-        </div>
-        <form onSubmit={(e) => onSubmit(e)}>
-          <input
-            className="add-event-title"
-            type="text"
-            placeholder="Event title"
-            onChange={(e) => onChange(e, title, setTitle)}
-            required
-          />
-          <input
-            className="add-event-description"
-            type="text"
-            placeholder="Event description"
-            onChange={(e) => onChange(e, description, setDescription)}
-            required
-          />
-          <input
-            className="add-event-group"
-            type="text"
-            placeholder="Group name"
-            onChange={(e) => onChange(e, group, setGroup)}
-            required
-          />
-          <input
-            className="add-event-start-time"
-            type="datetime-local"
-            onChange={(e) => onChange(e, startTime, setStartTime)}
-            required
-          />
-          <input
-            className="add-event-end-time"
-            type="datetime-local"
-            onChange={(e) => onChange(e, endTime, setEndTime)}
-            required
-          />
-          <input className="add-event-submit" type="submit" required />
-        </form>
-    </div>
-  );*/
 
   const onClick = () => {
     setRender({
@@ -92,14 +63,14 @@ export default function AddEventMenu({ render, setRender }) {
           <input
             className="h-[7vh] w-[30vw] rounded-md"
             type="text"
-            placeholder="Event description"
+            placeholder=" Event description"
             onChange={(e) => onChange(e, description, setDescription)}
             required
           />
           <input
             className="h-[7vh] w-[30vw] rounded-md"  
             type="text"
-            placeholder="Group name"
+            placeholder=" Group name"
             onChange={(e) => onChange(e, group, setGroup)}
             required
           />

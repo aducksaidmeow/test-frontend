@@ -8,40 +8,29 @@ export default function RemoveEventMenu({ render, setRender }) {
     e.preventDefault();
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/remove-event` : "/api/remove-event";
     const userId = localStorage.getItem("userId");
+    setRender({
+      loading: true,
+      calendar: false,
+      display: false,
+      addEvent: false,
+      addGroup: false,
+      removeEvent: false,
+    })
     axios.post(url, { userId, eventId }).then((response) => {
-
+      setRender({
+        loading: false,
+        calendar: true,
+        display: false,
+        addEvent: false,
+        addGroup: false,
+        removeEvent: false,
+      })
     }).catch((error) => console.log(error.message));
   };
 
   const onChange = (e) => {
     setEventId(e.target.value);
   };
-
-  /*return (
-    <div className="remove-event-form-container">
-      {!loading && (
-        <div
-          className="remove-event-close-button"
-          onClick={() => setOpen(false)}
-        >
-          x
-        </div>
-      )}
-      {!loading && (
-        <form onSubmit={(e) => onSubmit(e)}>
-          <input
-            className="event-id"
-            type="text"
-            placeholder="Enter event ID"
-            required
-            onChange={(e) => onChange(e)}
-          />
-          <input className="remove-event-submit-button" type="submit" />
-        </form>
-      )}
-      {loading && <LoadingScreen />}
-    </div>
-  );*/
 
   const onClick = () => {
     setRender({
@@ -62,7 +51,7 @@ export default function RemoveEventMenu({ render, setRender }) {
           <input
             className="h-[7vh] w-[30vw] rounded-md"
             type="text"
-            placeholder="Enter event ID"
+            placeholder=" Enter event ID"
             required
             onChange={(e) => onChange(e)}
           />

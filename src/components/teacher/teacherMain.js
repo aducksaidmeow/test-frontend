@@ -8,6 +8,8 @@ import AddEventMenu from "./addEvent/addEventMenu";
 import AddGroupMenu from "./addGroup/addGroupMenu"
 import RemoveEventMenu from "./removeEvent/removeEventMenu";
 import LoadingScreen from "./loadingScreen/loadingScreen";
+import DisplayGroupButton from "./displayGroup/displayGroupButton";
+import DisplayGroupMenu from "./displayGroup/displayGroupMenu";
 
 export default function TeacherMain() {
 
@@ -18,6 +20,7 @@ export default function TeacherMain() {
         addEvent: false,
         addGroup: false,
         removeEvent: false,
+        displayGroup: false,
     })
 
     const [display, setDisplay] = useState({});
@@ -32,6 +35,7 @@ export default function TeacherMain() {
                     <AddGroupButton render={render} setRender={setRender} />
                     <AddEventButton render={render} setRender={setRender} />
                     <RemoveEventButton render={render} setRender={setRender}/>
+                    <DisplayGroupButton render={render} setRender={setRender} />
                 </div>
                 <div className="col-start-2 col-span-15 flex justify-center items-center">
                     {render.calendar && 
@@ -51,6 +55,9 @@ export default function TeacherMain() {
                     }
                     {render.loading && 
                         <LoadingScreen />
+                    }
+                    {render.displayGroup && 
+                        <DisplayGroupMenu render={render} setRender={setRender} />
                     }
                 </div>
             </div>

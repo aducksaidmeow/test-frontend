@@ -4,14 +4,10 @@ import removeEvent from "./remove-event.png"
 export default function RemoveEventButton({ render, setRender}) {
 
     const onClick = () => {
-        setRender({
-            loading: false,
-            calendar: false,
-            display: false,
-            addEvent: false,
-            addGroup: false,
-            removeEvent: true,
-        })
+        const newRender = {...render};
+        for(const value in newRender) newRender[value] = false;
+        newRender.removeEvent = true;
+        setRender(newRender);
     }
 
     return (

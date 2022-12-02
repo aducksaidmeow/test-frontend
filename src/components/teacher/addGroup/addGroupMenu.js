@@ -10,23 +10,15 @@ export default function AddGroupMenu({ render, setRender}) {
     e.preventDefault();
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-group` : "/api/add-group";
     const userId = localStorage.getItem("userId");
-    setRender({
-      loading: true,
-      calendar: false,
-      display: false,
-      addEvent: false,
-      addGroup: false,
-      removeEvent: false,
-    })
+    const newRender = {...render};
+    for(const value in newRender) newRender[value] = false;
+    newRender.loading = true;
+    setRender(newRender);
     axios.post(url, { userId, groupName, groupMember }).then((response) => {
-      setRender({
-        loading: false,
-        calendar: true,
-        display: false,
-        addEvent: false,
-        addGroup: false,
-        removeEvent: false,
-      })
+      const newRender = {...render};
+      for(const value in newRender) newRender[value] = false;
+      newRender.calendar = true;
+    setRender(newRender);
     }).catch((error) => console.log(error));
   };
 
@@ -57,14 +49,10 @@ export default function AddGroupMenu({ render, setRender}) {
   };
 
   const onClick = () => {
-    setRender({
-      loading: false,
-      calendar: true,
-      display: false,
-      addEvent: false,
-      addGroup: false,
-      removeEvent: false,
-    })
+    const newRender = {...render};
+    for(const value in newRender) newRender[value] = false;
+    newRender.calendar = true;
+    setRender(newRender);
   }
 
   return (

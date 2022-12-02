@@ -4,14 +4,10 @@ import addGroup from "./add-group.png"
 export default function AddGroupButton({ render, setRender}) {
 
     const onClick = () => {
-        setRender({
-            loading: false,
-            calendar: false,
-            display: false,
-            addEvent: false,
-            addGroup: true,
-            removeEvent: false,
-          })
+        const newRender = {...render};
+        for(const value in newRender) newRender[value] = false;
+        newRender.addGroup = true;
+        setRender(newRender);
     }
 
     return (

@@ -4,14 +4,10 @@ import addEvent from "./add-event.png"
 export default function AddEventButton({ render, setRender}) {
 
     const onClick = () => {
-        setRender({
-            loading: false,
-            calendar: false,
-            display: false,
-            addEvent: true,
-            addGroup: false,
-            removeEvent: false,
-        })
+        const newRender = {...render};
+        for(const value in newRender) newRender[value] = false;
+        newRender.addEvent = true;
+        setRender(newRender);
     }
 
     return (

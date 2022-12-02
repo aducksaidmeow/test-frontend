@@ -11,11 +11,10 @@ export default function StudentCalendar({ render, setRender, display, setDisplay
     const eid = eventInfo.event.url.split("=")[1];
     const userId = localStorage.getItem("userId");
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-event` : "/api/get-event";
-    setRender({
-      loading: true,
-      calendar: false,
-      display: false,
-    })
+    const newRender = {...render};
+    for(const value in newRender) newRender[value] = false;
+    newRender.loading = true;
+    setRender(newRender);
     axios.post(url, { userId, eid }).then((response) => {
       setDisplay({
         title: eventInfo.event.title,
@@ -25,11 +24,10 @@ export default function StudentCalendar({ render, setRender, display, setDisplay
         endTime: eventInfo.event.end,
         id: response.data.data.id,
       });
-      setRender({
-        loading: false,
-        calendar: false,
-        display: true,
-      })
+      const newRender = {...render};
+      for(const value in newRender) newRender[value] = false;
+      newRender.display = true;
+      setRender(newRender);
     }).catch((error) => console.log(error));
   };
 

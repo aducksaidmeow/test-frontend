@@ -4,11 +4,10 @@ import { formatDate } from "@fullcalendar/react";
 export default function DisplayEvent({ render, setRender, display, setDisplay}) {
 
     const onClick = () => {
-        setRender({
-            loading: false,
-            calendar: true,
-            display: false,
-        });
+        const newRender = {...render};
+        for(const value in newRender) newRender[value] = false;
+        newRender.calendar = true;
+        setRender(newRender);
     }
 
     return (

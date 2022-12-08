@@ -3,6 +3,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import loginPicture from "./login-picture.png";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ export default function Login() {
     return () => clearInterval(currentInterval);
   }, []);
 
-  return (
+  /*return (
     <div className="h-screen flex justify-center items-center bg-[#F0EBE3]">
       <div className="h-[80vh] w-[80vw] bg-[#E4DCCF] shadow-2xl grid grid-rows-2 grid-cols-3">
         {!loading && (
@@ -62,7 +63,7 @@ export default function Login() {
             </div>
             <div className="flex justify-center items-start row-start-2 col-start-3">
               <button
-                className="bg-[#7D9D9C] h-[10vh] w-[24vw] rounded-md font-['consolas'] text-[25px] hover:scale-[1.05]"
+                className="bg-[#7D9D9C] h-[10vh] w-[24vw] font-['consolas'] text-[25px] hover:scale-[1.05] shadow-xl"
                 onClick={() => loginCall()}
               >
                 Sign in with Google 🔎
@@ -77,6 +78,35 @@ export default function Login() {
             </div>
           </> 
         )}
+      </div>
+    </div>
+  );*/
+
+  return (
+    <div className="h-screen grid grid-rows-6 grid-cols-6 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
+      <div className="col-start-4 col-span-3 row-start-2 row-span-5 flex items-end">
+        <img src={loginPicture} />
+      </div>
+      <div className="col-start-1 col-span-3 row-start-2 row-span-3 flex flex-col justify-center items-center">
+        <div className="text-[60px] font-semi-bold font-nerko-one">HOMEWORK CALENDAR</div>
+        <div className="text-[30px] font-nerko-one">A small website to manage your homeworks</div>
+        <button className="
+          h-[10vh] w-[24vw] bg-[#FFFBE9] border-[#FB2576] border-2 shadow-xl flex justify-center items-center mt-[5vh]
+          font-['consolas'] text-[20px] text-[#FB2576]
+          hover:bg-[#EA047E] hover:text-[#FFFBE9] hover:scale-[1.05] hover:text-[20px]
+          transition ease-in-out duration-150"
+          onClick={() => loginCall()}
+        >
+          Sign in with Google 🔎  
+        </button>
+        <button className="
+          h-[10vh] w-[24vw] bg-[#FFFBE9] border-[#FFBF00] border-2 shadow-xl flex justify-center items-center mt-[5vh]
+          font-['consolas'] text-[20px] text-[#FFBF00]
+          hover:bg-[#FFB200] hover:text-[#FFFBE9] hover:scale-[1.05] hover:text-[20px]
+          transition ease-in-out duration-150"
+        >
+          About us
+        </button>
       </div>
     </div>
   );

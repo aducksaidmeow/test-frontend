@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import student from "./student.jpg";
-import teacher from "./teacher.jpg";
 
 export default function AddInfo() {
   const navigate = useNavigate();

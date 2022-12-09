@@ -9,6 +9,7 @@ import Login from './components/login'
 import AddInfo from './components/addInfo'
 import StudentMain from './components/student/studentMain'
 import TeacherMain from './components/teacher/teacherMain'
+import AboutUs from './components/aboutUs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
     <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
       <Routes>
         <Route path="/" element={ <Login /> } />
+        <Route path="/about-us" element={ <AboutUs /> } />
         <Route path="/add-info" element={ <AddInfo /> } />
         <Route path="/student-calendar" element={ <StudentMain /> } />
         <Route path="/teacher-calendar" element={ <TeacherMain /> } />

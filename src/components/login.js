@@ -104,6 +104,7 @@ export default function Login() {
           font-['consolas'] text-[20px] text-[#FFBF00]
           hover:bg-[#FFB200] hover:text-[#FFFBE9] hover:scale-[1.05] hover:text-[20px]
           transition ease-in-out duration-150"
+          onClick={() => navigate("/about-us")}
         >
           About us
         </button>

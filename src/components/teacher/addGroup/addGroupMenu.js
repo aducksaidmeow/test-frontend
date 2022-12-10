@@ -18,7 +18,7 @@ export default function AddGroupMenu({ render, setRender}) {
       const newRender = {...render};
       for(const value in newRender) newRender[value] = false;
       newRender.calendar = true;
-    setRender(newRender);
+      setRender(newRender);
     }).catch((error) => console.log(error));
   };
 

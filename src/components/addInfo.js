@@ -69,47 +69,55 @@ export default function AddInfo() {
       </div>
     );
   }*/
-
-  return (
-    <div className="h-screen grid grid-rows-6 grid-cols-9 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
-      <div className="row-start-1 row-span-1 col-start-1 col-span-1 flex justify-center items-center">
-          <button className="
-            flex justify-center items-center
-            h-[11vh] w-[5.5vw] border-[#E5BA73] border-2 bg-[#FFFBE9]
-            hover:bg-[#C58940] hover:scale-[1.1] 
-            transition ease-in-out duration-150"
+  if (email !== "" && email != null && role === "") {
+    return (
+      <div className="h-screen grid grid-rows-6 grid-cols-9 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
+        <div className="col-start-2 col-span-4 row-start-2 row-span-4 flex justify-center items-center">
+          <button 
+            className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
+            onClick={() => onClick("student")}
           >
-            <img src={arrow} className="scale-[0.35]"/>
+            <img src={student} className="h-[30vh]"/>
+            <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
+              Student
+            </div>
+            <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
+              Student can view his/her homeworks            
+            </div>
           </button>
         </div>
-      <div className="col-start-2 col-span-4 row-start-2 row-span-4 flex justify-center items-center">
-        <button 
-          className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
-          onClick={() => onClick("student")}
+        <div className="col-start-5 col-span-4 row-start-2 row-span-4 flex justify-center items-center">
+          <button 
+            className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
+            onClick={() => onClick("teacher")}
+          >
+            <img src={teacher} className="h-[30vh]"/>
+            <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
+              Teacher
+            </div>
+            <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
+              Teacher can view, modify homeworks and create classes
+            </div>
+          </button>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
+        <div className="font-['consolas'] font-bold text-[50px]">
+          Something is wrong!
+        </div>
+        <button className="
+          h-[10vh] w-[30vw] mt-[10vh] bg-[#FFFBE9] border-[#975C8D] border-2 shadow-xl flex justify-center items-center mt-[5vh]
+          font-['consolas'] text-[20px] text-[#975C8D]
+          hover:bg-[#863A6F] hover:text-[#FFFBE9] hover:scale-[1.05] hover:text-[20px]
+          transition ease-in-out duration-150"
+          onClick={() => navigate("/")}
         >
-          <img src={student} className="h-[30vh]"/>
-          <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
-            Student
-          </div>
-          <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
-            Student can view his/her homeworks            
-          </div>
+          Return to login page
         </button>
       </div>
-      <div className="col-start-5 col-span-4 row-start-2 row-span-4 flex justify-center items-center">
-        <button 
-          className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
-          onClick={() => onClick("teacher")}
-        >
-          <img src={teacher} className="h-[30vh]"/>
-          <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
-            Teacher
-          </div>
-          <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
-            Teacher can view, modify homeworks and create classes
-          </div>
-        </button>
-      </div>
-    </div>
-  );
+    );
+  }
 }

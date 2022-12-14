@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import arrow from "./arrow.png"
+import student from "./student.png"
+import teacher from "./teacher.png"
 
 export default function AddInfo() {
   const navigate = useNavigate();
@@ -29,7 +32,7 @@ export default function AddInfo() {
   const email = localStorage.getItem("email");
   const role = localStorage.getItem("role");
 
-  if (loading) {
+  /*if (loading) {
     return  (
       <div className="h-screen flex justify-center items-center bg-[#F0EBE3]">
         <div className="h-[80vh] w-[60vw] bg-[#E4DCCF] shadow-2xl grid grid-rows-1 grid-cols-2">
@@ -65,5 +68,48 @@ export default function AddInfo() {
         <div>Something is wrong!</div>
       </div>
     );
-  }
+  }*/
+
+  return (
+    <div className="h-screen grid grid-rows-6 grid-cols-9 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
+      <div className="row-start-1 row-span-1 col-start-1 col-span-1 flex justify-center items-center">
+          <button className="
+            flex justify-center items-center
+            h-[11vh] w-[5.5vw] border-[#E5BA73] border-2 bg-[#FFFBE9]
+            hover:bg-[#C58940] hover:scale-[1.1] 
+            transition ease-in-out duration-150"
+          >
+            <img src={arrow} className="scale-[0.35]"/>
+          </button>
+        </div>
+      <div className="col-start-2 col-span-4 row-start-2 row-span-4 flex justify-center items-center">
+        <button 
+          className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
+          onClick={() => onClick("student")}
+        >
+          <img src={student} className="h-[30vh]"/>
+          <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
+            Student
+          </div>
+          <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
+            Student can view his/her homeworks            
+          </div>
+        </button>
+      </div>
+      <div className="col-start-5 col-span-4 row-start-2 row-span-4 flex justify-center items-center">
+        <button 
+          className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
+          onClick={() => onClick("teacher")}
+        >
+          <img src={teacher} className="h-[30vh]"/>
+          <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
+            Teacher
+          </div>
+          <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
+            Teacher can view, modify homeworks and create classes
+          </div>
+        </button>
+      </div>
+    </div>
+  );
 }

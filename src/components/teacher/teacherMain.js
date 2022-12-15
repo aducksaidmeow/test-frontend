@@ -3,6 +3,7 @@ import TeacherCalendar from "./calendar/teacherCalendar";
 import AddEventButton from "./addEvent/addEventButton";
 import AddGroupButton from "./addGroup/addGroupButton";
 import RemoveEventButton from "./removeEvent/removeEventButton";
+import InstructionButton from "./instruction/instructionButton";
 import DisplayEvent from "./displayEvent/displayEvent"
 import AddEventMenu from "./addEvent/addEventMenu";
 import AddGroupMenu from "./addGroup/addGroupMenu"
@@ -10,6 +11,7 @@ import RemoveEventMenu from "./removeEvent/removeEventMenu";
 import LoadingScreen from "./loadingScreen/loadingScreen";
 import DisplayGroupButton from "./displayGroup/displayGroupButton";
 import DisplayGroupMenu from "./displayGroup/displayGroupMenu";
+import InstructionMenu from "./instruction/instructionMenu";
 
 export default function TeacherMain() {
 
@@ -21,6 +23,7 @@ export default function TeacherMain() {
         addGroup: false,
         removeEvent: false,
         displayGroup: false,
+        instruction: false,
     })
 
     const [display, setDisplay] = useState({});
@@ -36,6 +39,7 @@ export default function TeacherMain() {
                     <AddEventButton render={render} setRender={setRender} />
                     <RemoveEventButton render={render} setRender={setRender}/>
                     <DisplayGroupButton render={render} setRender={setRender} />
+                    <InstructionButton render={render} setRender={setRender} />
                 </div>
                 <div className="col-start-2 col-span-15 flex justify-center items-center">
                     {render.calendar && 
@@ -58,6 +62,9 @@ export default function TeacherMain() {
                     }
                     {render.displayGroup && 
                         <DisplayGroupMenu render={render} setRender={setRender} />
+                    }
+                    {render.instruction && 
+                        <InstructionMenu render={render} setRender={setRender} />
                     }
                 </div>
             </div>

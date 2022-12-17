@@ -15,7 +15,7 @@ export default function RemoveEventButton({ render, setRender}) {
 
     return (
         <>
-            <Tippy content="Remove homeworks" placement="right" animation="scale-extreme">
+            <Tippy content="Xóa bài tập" placement="right" animation="scale-extreme">
                 <button className="h-[11.5vh] w-[5.5vw] rounded-md bg-[#E97777] flex justify-center items-center hover:translate-x-[1.5vw]"
                 onClick={() => onClick()}>
                     <img src={removeEvent} className="h-[9vh] w-[4vw]"/>

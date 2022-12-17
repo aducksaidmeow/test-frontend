@@ -15,7 +15,7 @@ export default function DisplayGroupButton({ render, setRender}) {
 
     return (
         <>
-            <Tippy content="See all classes" placement="right" animation="scale-extreme">
+            <Tippy content="Xem danh sách lớp học" placement="right" animation="scale-extreme">
                 <button className="h-[11.5vh] w-[5.5vw] rounded-md bg-[#DEBACE] flex justify-center items-center hover:translate-x-[1.5vw]"
                 onClick={() => onClick()}>
                     <img src={groupDropdown} className="h-[9vh] w-[4vw]"/>

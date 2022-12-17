@@ -44,21 +44,21 @@ export default function AddEventMenu({ render, setRender }) {
           <input
             className="h-[7vh] w-[30vw] rounded-md"
             type="text"
-            placeholder=" Event title"
+            placeholder=" Tiêu đề bài tập"
             onChange={(e) => onChange(e, title, setTitle)}
             required
           />
           <input
             className="h-[7vh] w-[30vw] rounded-md"
             type="text"
-            placeholder=" Event description"
+            placeholder=" Mô tả"
             onChange={(e) => onChange(e, description, setDescription)}
             required
           />
           <input
             className="h-[7vh] w-[30vw] rounded-md"  
             type="text"
-            placeholder=" Group name"
+            placeholder=" Tên lớp"
             onChange={(e) => onChange(e, group, setGroup)}
             required
           />

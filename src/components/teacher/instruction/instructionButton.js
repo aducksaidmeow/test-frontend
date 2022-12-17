@@ -36,7 +36,7 @@ export default function InstructionButton({ render, setRender }) {
 
     return (
         <>
-            <Tippy content="Instruction" placement="right" animation="scale-extreme">
+            <Tippy content="Hướng dẫn sử dụng" placement="right" animation="scale-extreme">
                 <button className="h-[11.5vh] w-[5.5vw] rounded-md bg-[#8B7E74] flex justify-center items-center hover:translate-x-[1.5vw]" 
                 onClick={() => onClick()}>
                     <img src={question} className="h-[7.5vh]"/>

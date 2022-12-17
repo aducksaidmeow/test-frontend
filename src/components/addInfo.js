@@ -79,10 +79,10 @@ export default function AddInfo() {
           >
             <img src={student} className="h-[30vh]"/>
             <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
-              Student
+              Học sinh
             </div>
             <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
-              Student can view his/her homeworks            
+              Học sinh có thể xem bài tập            
             </div>
           </button>
         </div>
@@ -93,10 +93,10 @@ export default function AddInfo() {
           >
             <img src={teacher} className="h-[30vh]"/>
             <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
-              Teacher
+              Giáo viên
             </div>
-            <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
-              Teacher can view, modify homeworks and create classes
+            <div className="mt-[1vh] font-['consolas'] text-[20px] pl-[1vw] pr-[1vw]"> 
+              Giáo viên có thể xem, thay đổi bài tập và tạo lớp học
             </div>
           </button>
         </div>

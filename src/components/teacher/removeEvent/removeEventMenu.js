@@ -39,7 +39,7 @@ export default function RemoveEventMenu({ render, setRender }) {
           <input
             className="h-[7vh] w-[30vw] rounded-md"
             type="text"
-            placeholder=" Enter event ID"
+            placeholder=" ID bài tập"
             required
             onChange={(e) => onChange(e)}
           />

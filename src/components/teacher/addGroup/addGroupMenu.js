@@ -64,7 +64,7 @@ export default function AddGroupMenu({ render, setRender}) {
               className="h-[7vh] w-[20vw] rounded-md"
               type="text"
               value={groupName}
-              placeholder=" Enter group name"
+              placeholder=" Tên lớp"
               required
               onChange={(e) => onChangeName(e)}
           />
@@ -75,14 +75,14 @@ export default function AddGroupMenu({ render, setRender}) {
                   key={index} 
                   className="h-[7vh] w-[20vw] rounded-md"
                   type="text"
-                  placeholder=" Enter member email"
+                  placeholder=" Email thành viên"
                   required
                   onChange={(e) => onChangeMember(e, index)}
                 />
                 {index === groupMember.length - 1 && 
                   <div key={index} className="h-[7vh] w-[30vw] grid grid-cols-2 gap-x-[1vw]">
-                    <button className="rounded-lg bg-[#182747]" onClick={() => addMember(index)}>Add new member</button>
-                    <button className="rounded-lg bg-[#6D8B74]" onClick={() => removeMember(index)}>Remove latest member</button>
+                    <button className="rounded-lg bg-[#182747]" onClick={() => addMember(index)}>Thêm thành viên mới</button>
+                    <button className="rounded-lg bg-[#6D8B74] text-[12.5px]" onClick={() => removeMember(index)}>Xóa thành viên cuối cùng</button>
                   </div>
                 }
               </>

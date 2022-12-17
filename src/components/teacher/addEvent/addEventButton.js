@@ -15,7 +15,7 @@ export default function AddEventButton({ render, setRender}) {
 
     return (
         <>
-            <Tippy content="Add new homeworks" placement="right" animation="scale-extreme">
+            <Tippy content="Thêm bài tập" placement="right" animation="scale-extreme">
                 <button className="h-[11.5vh] w-[5.5vw] rounded-md bg-[#B8E8FC] flex justify-center items-center hover:translate-x-[1.5vw]"
                     onClick={() => onClick()}
                 >

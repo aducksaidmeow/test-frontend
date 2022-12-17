@@ -20,7 +20,7 @@ export default function AboutUs() {
                 </button>
             </div>
             <div className="row-start-2 row-span-4 col-start-2 col-span-4 flex justify-center items-center font-['consolas'] text-[22.5px] text-justify">
-            Web của chúng tôi có nét tương đồng với phần mềm Google Classroom. Nhưng Classroom chỉ hiển thị bài tập dưới dạng liệt kê, nên học sinh khó nắm bắt được bài tập môn nào, nộp ở thời điểm nào khi số lượng bài tập lớn, và tệ nhất là luôn quên hoàn thành bài tập. Web của chúng tôi ở đây sẽ sử dụng Google Calendar API để hiện thị bài tập dưới dạng lịch để bàn, 
+            Web của chúng tôi có nét tương đồng với phần mềm Google Classroom. Nhưng Classroom chỉ hiển thị bài tập dưới dạng liệt kê, nên học sinh khó nắm bắt được bài tập môn nào, nộp ở thời điểm nào khi số lượng bài tập lớn, và tệ nhất là luôn quên hoàn thành bài tập. Web của chúng tôi ở đây sẽ sử dụng Google Calendar API để hiển thị bài tập dưới dạng lịch để bàn, 
             cho học sinh một cái nhìn tổng quát hơn về những bài tập trong ngày, trong tuần.
             Web cũng sẽ có đồng hồ báo thức để nhắc học sinh làm bài. Đồng hồ sẽ được đặt bởi giáo viên và trước khi trễ hạn nộp thì đồng hồ sẽ thông báo đến máy học sinh.
             </div>

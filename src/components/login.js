@@ -97,7 +97,7 @@ export default function Login() {
           transition ease-in-out duration-150"
           onClick={() => loginCall()}
         >
-          Sign in with Google 🔎  
+          Đăng nhập bằng Google 🔎  
         </button>
         <button className="
           h-[10vh] w-[24vw] bg-[#FFFBE9] border-[#FFBF00] border-2 shadow-xl flex justify-center items-center mt-[5vh]
@@ -106,7 +106,7 @@ export default function Login() {
           transition ease-in-out duration-150"
           onClick={() => navigate("/about-us")}
         >
-          About us
+          Về chúng tôi
         </button>
       </div>
     </div>

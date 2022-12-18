@@ -10,7 +10,7 @@ export default function InstructionMenu({ render, setRender }) {
     }
 
     return (
-        <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#EEEEEE]">
+        <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
             <div className="h-[75vh] w-[75vw] bg-[#CCD1E4] rounded-lg relative flex justify-center items-center pt-[1vh]">
                 <button className="absolute top-0 right-0 bg-[#DC3535] h-[5vh] w-[2.5vw] rounded-lg" onClick={() => onClick()}>X</button>
                 <div className="flex flex-col items-center gap-[2vh] font-['consolas'] text-[25px]">

@@ -32,7 +32,7 @@ export default function StudentCalendar({ render, setRender, display, setDisplay
   };
 
   return (
-    <div className="h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#EEEEEE]">
+    <div className="h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
       <FullCalendar
         plugins={[dayGridPlugin, googleCalendarPlugin]}
         initialView="dayGridMonth"
@@ -42,7 +42,7 @@ export default function StudentCalendar({ render, setRender, display, setDisplay
         }}
         contentHeight="auto"
         eventDisplay="block"
-        eventColor="#066163"
+        eventColor="#4B56D2"
         eventClick={(eventInfo) => eventClick(eventInfo)}
       />
     </div>

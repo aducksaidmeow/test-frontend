@@ -31,7 +31,7 @@ export default function DisplayGroupMenu({ render, setRender }) {
     }
 
     return (
-        <div className="h-[90vh] w-[90vw] grid grid-cols-2 font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#EEEEEE]">
+        <div className="h-[90vh] w-[90vw] grid grid-cols-2 font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
             <div className="flex justify-center items-center">
                 <div className="h-[75vh] w-[40vw] bg-[#CCD1E4] rounded-lg flex justify-center items-center flex-col gap-[2.5vh] relative overflow-y-auto scrollbar-hide">
                     <button className="absolute top-0 right-0 bg-[#DC3535] h-[5vh] w-[2.5vw] rounded-lg" onClick={() => exitGroup()}>X</button>

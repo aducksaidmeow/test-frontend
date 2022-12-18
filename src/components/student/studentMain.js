@@ -18,7 +18,7 @@ export default function TeacherMain() {
 
     if (email !== '' && email != null && role === 'student') {
         return (
-            <div className="h-screen bg-[#F0EBE3] flex justify-center items-center">
+            <div className="h-screen bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 flex justify-center items-center">
                 {render.calendar && 
                     <StudentCalendar render={render} setRender={setRender} display={display} setDisplay={setDisplay}/>
                 }

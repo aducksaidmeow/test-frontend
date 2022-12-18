@@ -33,7 +33,7 @@ export default function TeacherMain() {
 
     if (email !== '' && email != null && role === 'teacher') {
         return (
-            <div className="h-screen grid grid-cols-16 bg-[#F0EBE3]">
+            <div className="h-screen grid grid-cols-16 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
                 <div className="flex flex-col items-center pt-[10vh] gap-[1vh]">
                     <AddGroupButton render={render} setRender={setRender} />
                     <AddEventButton render={render} setRender={setRender} />

@@ -11,7 +11,7 @@ export default function DisplayEvent({ render, setRender, display, setDisplay}) 
     }
 
     return (
-        <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#EEEEEE]">
+        <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
             <div className="h-[75vh] w-[50vw] bg-[#CCD1E4] rounded-lg relative flex justify-center items-center flex-col gap-[2.5vh]">
                 <button className="absolute top-0 right-0 bg-[#DC3535] h-[5vh] w-[2.5vw] rounded-lg" onClick={() => onClick()}>X</button>
                 <div className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Tiêu đề: {display.title}</div>

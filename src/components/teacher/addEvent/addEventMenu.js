@@ -18,6 +18,7 @@ export default function AddEventMenu({ render, setRender }) {
     setRender(newRender);
     console.log({ startTime, endTime });
     axios.post(url, { userId, title, description, group, startTime, endTime }).then((response) => {
+      console.log(response.data);
       const newRender = {...render};
       for(const value in newRender) newRender[value] = false;
       newRender.calendar = true;

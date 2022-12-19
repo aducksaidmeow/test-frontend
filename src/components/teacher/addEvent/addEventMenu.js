@@ -16,6 +16,7 @@ export default function AddEventMenu({ render, setRender }) {
     for(const value in newRender) newRender[value] = false;
     newRender.loading = true;
     setRender(newRender);
+    console.log({ startTime, endTime });
     axios.post(url, { userId, title, description, group, startTime, endTime }).then((response) => {
       const newRender = {...render};
       for(const value in newRender) newRender[value] = false;

@@ -7,7 +7,7 @@ export default function DisplayGroupMenu({ render, setRender }) {
     const [displayMember, setDisplayMember] = useState([]);
 
     useEffect(() => {
-        const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-group` : "/api/get-group";
+        const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-all-group` : "/api/get-all-group";
         const userId = localStorage.getItem("userId");
         axios.post(url, { userId }).then(response => {
             setDisplayGroup(response.data);

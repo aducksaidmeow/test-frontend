@@ -50,38 +50,6 @@ export default function Login() {
     return () => clearInterval(currentInterval);
   }, []);
 
-  /*return (
-    <div className="h-screen flex justify-center items-center bg-[#F0EBE3]">
-      <div className="h-[80vh] w-[80vw] bg-[#E4DCCF] shadow-2xl grid grid-rows-2 grid-cols-3">
-        {!loading && (
-          <>
-            <div className="flex justify-center items-center row-span-2 col-span-2">
-              Put some picture here
-            </div>
-            <div className="flex justify-center items-center row-start-1 col-start-3 font-['consolas'] text-[30px]">
-              Login to continue
-            </div>
-            <div className="flex justify-center items-start row-start-2 col-start-3">
-              <button
-                className="bg-[#7D9D9C] h-[10vh] w-[24vw] font-['consolas'] text-[25px] hover:scale-[1.05] shadow-xl"
-                onClick={() => loginCall()}
-              >
-                Sign in with Google 🔎
-              </button>
-            </div>
-          </>
-        )}
-        {loading && ( 
-          <>
-            <div className="flex justify-center items-center row-span-2 col-span-3 font-['consolas'] text-[40px]">
-              {loadingDisplay[index]}
-            </div>
-          </> 
-        )}
-      </div>
-    </div>
-  );*/
-
   return (
     <div className="h-screen grid grid-rows-6 grid-cols-6 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
       <div className="col-start-4 col-span-3 row-start-2 row-span-5 flex items-end">

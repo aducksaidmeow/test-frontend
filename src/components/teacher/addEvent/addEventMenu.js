@@ -10,20 +10,29 @@ export default function AddEventMenu({ render, setRender }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-event` : "/api/add-event";
-    const userId = localStorage.getItem("userId");
     const newRender = {...render};
     for(const value in newRender) newRender[value] = false;
     newRender.loading = true;
     setRender(newRender);
-    console.log({ startTime, endTime });
-    axios.post(url, { userId, title, description, group, startTime, endTime }).then((response) => {
-      console.log(response.data);
-      const newRender = {...render};
-      for(const value in newRender) newRender[value] = false;
-      newRender.calendar = true;
-      setRender(newRender);
-    }).catch((error) => console.log(error));
+    const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-group` : "/api/get-group";
+    const userId = localStorage.getItem("userId");
+    axios.post(url, { userId, group }).then(async(response) => {
+      const member = response.data.filter((value, index) => value.split("@")[0] !== userId);
+      member.push(userId + "@gmail.com");
+      const addEventPromise = await member.map(async(gmail, index) => {
+        const studentId = gmail.split("@")[0].toLowerCase();
+        const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-event` : "/api/add-event";
+        return axios.post(url, { studentId, title, description, group, startTime, endTime }).then(response => {}).catch(error => console.log(error));
+      })
+      Promise.all(addEventPromise).then(response => {
+        console.log(response);
+        const newRender = {...render};
+        for(const value in newRender) newRender[value] = false;
+        newRender.calendar = true;
+        setRender(newRender);
+      }).catch(error => console.log(error));
+      console.log(member);
+    }).catch(error => console.log(error));
   };
 
   const onChange = (e, value, setValue) => {

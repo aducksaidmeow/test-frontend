@@ -56,8 +56,8 @@ export default function Login() {
         <img src={loginPicture} />
       </div>
       <div className="col-start-1 col-span-3 row-start-2 row-span-3 flex flex-col justify-center items-center">
-        <div className="text-[60px] font-semi-bold font-nerko-one">HOMEWORK CALENDAR</div>
-        <div className="text-[30px] font-nerko-one">A small website to manage your homeworks</div>
+        <div className="text-[45px] font-bold font-['consolas']">WEBSITE BÁO THỨC HỌC TẬP</div>
+        {/*<div className="text-[30px] font-nerko-one">A small website to manage your homeworks</div>*/}
         <button className="
           h-[10vh] w-[24vw] bg-[#FFFBE9] border-[#FB2576] border-2 shadow-xl flex justify-center items-center mt-[5vh]
           font-['consolas'] text-[20px] text-[#FB2576]

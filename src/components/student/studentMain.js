@@ -24,7 +24,7 @@ export default function TeacherMain() {
 
     if (email !== '' && email != null && role === 'student') {
         return (
-            <div className="h-screen grid grid-cols-16 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
+            <div className="h-screen grid grid-cols-16 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 overflow-y-auto overflow-x-auto scrollbar-hide">
                 <div className="flex flex-col items-center pt-[10vh] gap-[1vh]">
                     <RemoveEventButton render={render} setRender={setRender} />
                     <InstructionButton render={render} setRender={setRender} />

@@ -2,6 +2,7 @@ import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import googleCalendarPlugin from "@fullcalendar/google-calendar";
+import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 
 export default function StudentCalendar({ render, setRender, display, setDisplay}) {
@@ -32,7 +33,13 @@ export default function StudentCalendar({ render, setRender, display, setDisplay
   };
 
   return (
-    <div className="h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
+    <div 
+      className="h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]"
+      initial={{ x: 1000 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 1 }}
+      exit={{ scale: 0 }}
+    >
       <FullCalendar
         plugins={[dayGridPlugin, googleCalendarPlugin]}
         initialView="dayGridMonth"

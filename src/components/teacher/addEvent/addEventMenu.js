@@ -17,8 +17,9 @@ export default function AddEventMenu({ render, setRender }) {
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-group` : "/api/get-group";
     const userId = localStorage.getItem("userId");
     axios.post(url, { userId, group }).then(async(response) => {
-      const member = response.data.filter((value, index) => value.split("@")[0] !== userId);
+      const member = response.data.filter((value, index) => value.split("@")[0].toLowerCase() !== userId);
       member.push(userId + "@gmail.com");
+      console.log(member);
       const addEventPromise = await member.map(async(gmail, index) => {
         const studentId = gmail.split("@")[0].toLowerCase();
         const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-event` : "/api/add-event";
@@ -31,7 +32,6 @@ export default function AddEventMenu({ render, setRender }) {
         newRender.calendar = true;
         setRender(newRender);
       }).catch(error => console.log(error));
-      console.log(member);
     }).catch(error => console.log(error));
   };
 

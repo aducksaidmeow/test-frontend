@@ -1,5 +1,6 @@
 import React from "react";
 import { formatDate } from "@fullcalendar/react";
+import axios from "axios"
 
 export default function DisplayEvent({ render, setRender, display, setDisplay}) {
 
@@ -8,6 +9,22 @@ export default function DisplayEvent({ render, setRender, display, setDisplay}) 
         for(const value in newRender) newRender[value] = false;
         newRender.calendar = true;
         setRender(newRender);
+    }
+
+    const onClickDelete = () => {
+        const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/remove-event` : "/api/remove-event";
+        const userId = localStorage.getItem("userId");
+        const newRender = {...render};
+        for(const value in newRender) newRender[value] = false;
+        newRender.loading = true;
+        setRender(newRender);
+        const eventId = display.id;
+        axios.post(url, { userId, eventId }).then((response) => {
+            const newRender = {...render};
+            for(const value in newRender) newRender[value] = false;
+            newRender.calendar = true;
+            setRender(newRender);
+        }).catch((error) => console.log(error.message));
     }
 
     return (
@@ -46,7 +63,13 @@ export default function DisplayEvent({ render, setRender, display, setDisplay}) 
                     second: "2-digit",
                     hour12: true
                 })}</div>
-                <div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">ID bài tập: {display.id}</div>
+                {/*<div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">ID bài tập: {display.id}</div>*/}
+                <button 
+                    className="h-[7.5vh] w-[25vw] bg-[#DC3535] rounded-md flex justify-center items-center"
+                    onClick={() => onClickDelete()}
+                >
+                    Xóa bài tập
+                </button>
             </div>
         </div>
     );

@@ -37,9 +37,9 @@ export default function TeacherMain() {
                 <div className="flex flex-col items-center pt-[10vh] gap-[1vh]">
                     {/*<AddGroupButton render={render} setRender={setRender} />*/}
                     <AddEventButton render={render} setRender={setRender} />
-                    <RemoveEventButton render={render} setRender={setRender}/>
+                    {/*<RemoveEventButton render={render} setRender={setRender}/>*/}
                     <DisplayGroupButton render={render} setRender={setRender} />
-                    <InstructionButton render={render} setRender={setRender} />
+                    {/*<InstructionButton render={render} setRender={setRender} />*/}
                 </div>
                 <div className="col-start-2 col-span-15 flex justify-center items-center">
                     {render.calendar && 
@@ -54,18 +54,18 @@ export default function TeacherMain() {
                     {/*{render.addGroup && 
                         <AddGroupMenu render={render} setRender={setRender} />
                     }*/}
-                    {render.removeEvent &&
+                    {/*{render.removeEvent &&
                         <RemoveEventMenu render={render} setRender={setRender} />
-                    }
+                    }*/}
                     {render.loading && 
                         <LoadingScreen />
                     }
                     {render.displayGroup && 
                         <DisplayGroupMenu render={render} setRender={setRender} />
                     }
-                    {render.instruction && 
+                    {/*{render.instruction && 
                         <InstructionMenu render={render} setRender={setRender} />
-                    }
+                    }*/}
                 </div>
             </div>
         );

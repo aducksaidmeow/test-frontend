@@ -17,7 +17,7 @@ export default function AddEventMenu({ render, setRender }) {
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-group` : "/api/get-group";
     const userId = localStorage.getItem("userId");
     axios.post(url, { userId, group }).then(async(response) => {
-      const member = response.data.filter((value, index) => value.split("@")[0].toLowerCase() !== userId);
+      const member = response.data.memberEmail.filter((value, index) => value.split("@")[0].toLowerCase() !== userId);
       member.push(userId + "@gmail.com");
       console.log(member);
       const addEventPromise = await member.map(async(gmail, index) => {
@@ -49,43 +49,49 @@ export default function AddEventMenu({ render, setRender }) {
 
   return (
     <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
-      <div className="h-[75vh] w-[50vw] bg-[#CCD1E4] rounded-lg relative flex justify-center items-center">
+      <div className="h-[75vh] w-[65vw] bg-[#CCD1E4] rounded-lg relative flex justify-center items-center">
         <button className="absolute top-0 right-0 bg-[#DC3535] h-[5vh] w-[2.5vw] rounded-lg" onClick={() => onClick()}>X</button>
         <form className="flex justify-center items-center flex-col gap-[3vh]" onSubmit={(e) => onSubmit(e)}>
-          <input
-            className="h-[7vh] w-[30vw] rounded-md"
-            type="text"
-            placeholder=" Tiêu đề bài tập"
-            onChange={(e) => onChange(e, title, setTitle)}
-            required
-          />
-          <input
-            className="h-[7vh] w-[30vw] rounded-md"
-            type="text"
-            placeholder=" Mô tả"
-            onChange={(e) => onChange(e, description, setDescription)}
-            required
-          />
-          <input
-            className="h-[7vh] w-[30vw] rounded-md"  
-            type="text"
-            placeholder=" Tên lớp"
-            onChange={(e) => onChange(e, group, setGroup)}
-            required
-          />
-          <input
-            className="h-[7vh] w-[30vw] rounded-md"
-            type="datetime-local"
-            onChange={(e) => onChange(e, startTime, setStartTime)}
-            required
-          />
-          <input
-            className="h-[7vh] w-[30vw] rounded-md"
-            type="datetime-local"
-            onChange={(e) => onChange(e, endTime, setEndTime)}
-            required
-          />
-          <input className="h-[7vh] w-[20vw] rounded-md bg-[#829460]" type="submit" required />
+          <div className="flex flex-row justify-center items-center gap-[2.5vw]">
+            <input
+              className="h-[7vh] w-[25vw] rounded-md"
+              type="text"
+              placeholder=" Tiêu đề bài tập"
+              onChange={(e) => onChange(e, title, setTitle)}
+              required
+            />
+            <input
+              className="h-[7vh] w-[25vw] rounded-md"  
+              type="text"
+              placeholder=" Tên lớp"
+              onChange={(e) => onChange(e, group, setGroup)}
+              required
+            />
+          </div>
+          <div className="flex flex-row justify-center items-start gap-[2.5vw]">
+            <input
+              className="h-[16.5vh] w-[25vw] rounded-md"
+              type="text"
+              placeholder=" Mô tả"
+              onChange={(e) => onChange(e, description, setDescription)}
+              required
+            />
+            <div className="flex flex-col justify-center items-center gap-[2.5vh]"> 
+              <input
+                className="h-[7vh] w-[25vw] rounded-md"
+                type="datetime-local"
+                onChange={(e) => onChange(e, startTime, setStartTime)}
+                required
+              />
+              <input
+                className="h-[7vh] w-[25vw] rounded-md"
+                type="datetime-local"
+                onChange={(e) => onChange(e, endTime, setEndTime)}
+                required
+              />
+            </div>
+          </div>
+          <input className="h-[7vh] w-[20vw] rounded-md bg-[#829460]" type="submit" value="Gửi" required />
         </form>
       </div>
     </div>

@@ -38,6 +38,7 @@ export default function Login() {
               if (role === "") setLink("/add-info");
               else if (role === "student") setLink("/student-calendar");
               else if (role === "teacher") setLink("teacher-calendar");
+              else if (role === "admin") setLink("/admin-calendar");
               setRemove(true);
             }).catch((error) => console.log(error.message));
           }).catch((error) => console.log(error.message));

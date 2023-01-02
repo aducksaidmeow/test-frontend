@@ -81,14 +81,14 @@ export default function AddGroupMenu({ render, setRender}) {
                 />
                 {index === groupMember.length - 1 && 
                   <div key={index} className="h-[7vh] w-[30vw] grid grid-cols-2 gap-x-[1vw]">
-                    <button className="rounded-lg bg-[#182747]" onClick={() => addMember(index)}>Thêm thành viên mới</button>
+                    <button className="rounded-lg bg-[#579BB1]" onClick={() => addMember(index)}>Thêm thành viên mới</button>
                     <button className="rounded-lg bg-[#6D8B74] text-[12.5px]" onClick={() => removeMember(index)}>Xóa thành viên cuối cùng</button>
                   </div>
                 }
               </>
             );
           })}
-          <input className="h-[7vh] w-[15vw] rounded-md bg-[#829460]" type="submit"/>
+          <input className="h-[7vh] w-[15vw] rounded-md bg-[#829460]" type="submit" value="Gửi"/>
         </form>
       </div>
     </div>

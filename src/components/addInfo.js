@@ -21,6 +21,7 @@ export default function AddInfo() {
       setLoading(false);
       if (role === "student") setLink("/student-calendar");
       else if (role === "teacher") setLink("/teacher-calendar");
+      else if (role === "admin") setLink("/admin-calendar");
       setRemove(true);
     }).catch((error) => console.log(error.message));
   };
@@ -30,7 +31,56 @@ export default function AddInfo() {
 
     return (
       <div className="h-screen grid grid-rows-6 grid-cols-9 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 overflow-y-auto overflow-x-auto scrollbar-hide">
-        <AnimatePresence onExitComplete={() => navigate(link)}>
+        <AnimatePresence onExitComplete={() => navigate(link)} >
+        {!remove && <motion.div 
+          className="col-start-1 col-span-9 row-start-2 row-span-4 flex justify-center items-center gap-[5vw]"
+          initial={{ x: 1000 }}
+          animate={{ x: 0 }}
+          exit={{ x: 1000 }}
+          transition={{ duration: 1 }}
+        >
+          {/*Student*/}
+          <button 
+            className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
+            onClick={() => onClick("student")}
+          >
+            <img src={student} className="h-[30vh]"/>
+            <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
+              Học sinh
+            </div>
+            <div className="mt-[1vh] font-['consolas'] text-[20px]"> 
+              Xem bài tập
+            </div>
+          </button>
+          {/*Student*/}
+          <button 
+            className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
+            onClick={() => onClick("teacher")}
+          >
+            <img src={teacher} className="h-[30vh]"/>
+            <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
+              Giáo viên
+            </div>
+            <div className="mt-[1vh] font-['consolas'] text-[20px] pl-[1vw] pr-[1vw]"> 
+              Xem, gửi bài tập
+            </div>
+          </button>
+          {/*Admin*/}
+          <button 
+            className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
+            onClick={() => onClick("admin")}
+          >
+            <img src={teacher} className="h-[30vh]"/>
+            <div className="flex justify-start items-center mt-[2.5vh] font-['consolas'] font-bold text-[25px]">
+              Admin
+            </div>
+            <div className="mt-[1vh] font-['consolas'] text-[20px] pl-[1vw] pr-[1vw]"> 
+              Tạo lớp cho giáo viên sử dụng (thường là lớp trưởng)
+            </div>
+          </button>
+        </motion.div> }
+        </AnimatePresence>
+        {/*<AnimatePresence onExitComplete={() => navigate(link)}>
         {!remove && <motion.div 
           key="student"
           className="col-start-2 col-span-4 row-start-2 row-span-4 flex justify-center items-center"
@@ -73,7 +123,7 @@ export default function AddInfo() {
             </div>
           </button>
         </motion.div> }
-        </AnimatePresence>
+        </AnimatePresence>*/}
       </div>
     );
     /*return (

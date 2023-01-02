@@ -14,6 +14,7 @@ module.exports = {
       },
       gridColumn: {
         'span-15': 'span 15 / span 15',
+        'span-16': 'span 16 / span 16',
       },
       fontFamily: {
         'nerko-one': ['"Nerko One"', 'cursive'],

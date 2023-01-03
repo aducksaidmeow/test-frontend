@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function AddEventMenu({ render, setRender }) {
   const [title, setTitle] = useState("");
@@ -7,6 +7,16 @@ export default function AddEventMenu({ render, setRender }) {
   const [group, setGroup] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
+  const [displayGroup, setDisplayGroup] = useState({});
+  const [dropdown, setDropdown] = useState(false);
+
+  useEffect(() => {
+    const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-all-group` : "/api/get-all-group";
+    const userId = localStorage.getItem("userId");
+    axios.post(url, { userId }).then(response => {
+      setDisplayGroup(response.data);
+    }).catch(error => console.log(error.message));
+  }, [])
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -40,7 +50,12 @@ export default function AddEventMenu({ render, setRender }) {
     setValue(e.target.value);
   };
 
-  const onClick = () => {
+  const onClickChoose = (value) => {
+    setGroup(value);
+    setDropdown(false);
+  };
+
+  const onClickClose = () => {
     const newRender = {...render};
     for(const value in newRender) newRender[value] = false;
     newRender.calendar = true;
@@ -50,7 +65,7 @@ export default function AddEventMenu({ render, setRender }) {
   return (
     <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
       <div className="h-[75vh] w-[65vw] bg-[#CCD1E4] rounded-lg relative flex justify-center items-center">
-        <button className="absolute top-0 right-0 bg-[#DC3535] h-[5vh] w-[2.5vw] rounded-lg" onClick={() => onClick()}>X</button>
+        <button className="absolute top-0 right-0 bg-[#DC3535] h-[5vh] w-[2.5vw] rounded-lg" onClick={() => onClickClose()}>X</button>
         <form className="flex justify-center items-center flex-col gap-[3vh]" onSubmit={(e) => onSubmit(e)}>
           <div className="flex flex-row justify-center items-center gap-[2.5vw]">
             <input
@@ -60,13 +75,28 @@ export default function AddEventMenu({ render, setRender }) {
               onChange={(e) => onChange(e, title, setTitle)}
               required
             />
-            <input
-              className="h-[7vh] w-[25vw] rounded-md"  
-              type="text"
-              placeholder=" Tên lớp"
-              onChange={(e) => onChange(e, group, setGroup)}
-              required
-            />
+            <div className="h-[7vh] w-[25vw] rounded-md z-10">
+              {!dropdown && <button
+                className="h-[7vh] w-[25vw] rounded-md bg-[#ffffff]"
+                onClick={() => setDropdown(true)}
+              >
+                {group}
+              </button>}
+              {dropdown && <div className="w-[25vw] h-[26.5vh] rounded-md bg-[#ffffff] overflow-y-auto scrollbar-hide">
+                {Object.entries(displayGroup).map((member, index) => {
+                  return (
+                    <button 
+                      key={index} 
+                      className="h-[7vh] w-[25vw] flex justify-center items-center rounded-md outline outline-[0.5px] outline-[#EEEEEE]" 
+                      onClick={() => onClickChoose(member[0])}
+                    >
+                      {member[0]}
+                    </button>
+                  )
+                })}
+              </div>}
+            </div>
+            
           </div>
           <div className="flex flex-row justify-center items-start gap-[2.5vw]">
             <input

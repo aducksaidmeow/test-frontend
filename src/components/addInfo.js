@@ -21,7 +21,7 @@ export default function AddInfo() {
       setLoading(false);
       if (role === "student") setLink("/student-calendar");
       else if (role === "teacher") setLink("/teacher-calendar");
-      else if (role === "admin") setLink("/admin-calendar");
+      //else if (role === "admin") setLink("/admin-calendar");
       setRemove(true);
     }).catch((error) => console.log(error.message));
   };
@@ -52,7 +52,7 @@ export default function AddInfo() {
               Xem bài tập
             </div>
           </button>
-          {/*Student*/}
+          {/*Teacher*/}
           <button 
             className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
             onClick={() => onClick("teacher")}
@@ -66,7 +66,7 @@ export default function AddInfo() {
             </div>
           </button>
           {/*Admin*/}
-          <button 
+          {/*<button 
             className="h-[65vh] w-[25vw] flex flex-col justify-center items-center bg-white rounded-[20px] shadow-xl hover:scale-[1.05]"
             onClick={() => onClick("admin")}
           >
@@ -77,7 +77,7 @@ export default function AddInfo() {
             <div className="mt-[1vh] font-['consolas'] text-[20px] pl-[1vw] pr-[1vw]"> 
               Tạo lớp cho giáo viên sử dụng (thường là lớp trưởng)
             </div>
-          </button>
+          </button>*/}
         </motion.div> }
         </AnimatePresence>
         {/*<AnimatePresence onExitComplete={() => navigate(link)}>

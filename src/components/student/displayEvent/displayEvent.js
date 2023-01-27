@@ -31,10 +31,10 @@ export default function DisplayEvent({ render, setRender, display, setDisplay}) 
         <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
             <div className="h-[75vh] w-[50vw] bg-[#CCD1E4] rounded-lg relative flex justify-center items-center flex-col gap-[2.5vh]">
                 <button className="absolute top-0 right-0 bg-[#DC3535] h-[5vh] w-[2.5vw] rounded-lg" onClick={() => onClick()}>X</button>
-                <div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Tiêu đề: {display.title}</div>
-                <div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Mô tả: {display.description}</div>
-                <div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Lớp: {display.group}</div>
-                <div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Bắt đầu: {formatDate(display.startTime, {
+                <div className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Tiêu đề: {display.title}</div>
+                <div className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Mô tả: {display.description}</div>
+                <div className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Lớp: {display.group}</div>
+                <div className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Bắt đầu: {formatDate(display.startTime, {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
@@ -44,7 +44,7 @@ export default function DisplayEvent({ render, setRender, display, setDisplay}) 
                     second: "2-digit",
                     hour12: true
                 })}</div>
-                <div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Kết thúc: {display.endTime === null ? formatDate(display.startTime, {
+                <div className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">Kết thúc: {display.endTime === null ? formatDate(display.startTime, {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
@@ -63,7 +63,14 @@ export default function DisplayEvent({ render, setRender, display, setDisplay}) 
                     second: "2-digit",
                     hour12: true
                 })}</div>
-                {/*<div className="h-[7.5vh] w-[40vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">ID bài tập: {display.id}</div>*/}
+                {display.downloadURL !== "" && 
+                    <div 
+                        className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center"
+                        onClick={() => window.open(display.downloadURL)}
+                    >
+                        {display.fileName}
+                    </div>
+                }   
                 <button 
                     className="h-[7.5vh] w-[25vw] bg-[#DC3535] rounded-md flex justify-center items-center"
                     onClick={() => onClickDelete()}

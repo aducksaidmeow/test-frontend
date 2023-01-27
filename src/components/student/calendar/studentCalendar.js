@@ -24,6 +24,8 @@ export default function StudentCalendar({ render, setRender, display, setDisplay
         startTime: eventInfo.event.start,
         endTime: eventInfo.event.end,
         id: response.data.data.id,
+        downloadURL: response.data.data.extendedProperties.shared.downloadURL,
+        fileName: response.data.data.extendedProperties.shared.fileName,
       });
       const newRender = {...render};
       for(const value in newRender) newRender[value] = false;

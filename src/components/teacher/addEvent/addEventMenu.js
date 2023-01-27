@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { storage } from "../../../firebaseConfig";
+import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
 
 export default function AddEventMenu({ render, setRender }) {
   const [title, setTitle] = useState("");
@@ -9,6 +11,8 @@ export default function AddEventMenu({ render, setRender }) {
   const [endTime, setEndTime] = useState("");
   const [displayGroup, setDisplayGroup] = useState({});
   const [dropdown, setDropdown] = useState(false);
+  const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState("");
 
   useEffect(() => {
     const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-all-group` : "/api/get-all-group";
@@ -18,14 +22,22 @@ export default function AddEventMenu({ render, setRender }) {
     }).catch(error => console.log(error.message));
   }, [])
 
-  const onSubmit = (e) => {
+  const onSubmit = async(e) => {
     e.preventDefault();
     const newRender = {...render};
     for(const value in newRender) newRender[value] = false;
     newRender.loading = true;
     setRender(newRender);
-    const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-group` : "/api/get-group";
+    //
     const userId = localStorage.getItem("userId");
+    var downloadURL = "";
+    //
+    if (file !== null) {
+      await uploadBytes(ref(storage, userId + '/' + fileName), file);
+      downloadURL = await getDownloadURL(ref(storage, userId + '/' + fileName));
+    }    
+    //
+    const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-group` : "/api/get-group";
     axios.post(url, { userId, group }).then(async(response) => {
       const member = response.data.memberEmail.filter((value, index) => value.split("@")[0].toLowerCase() !== userId);
       member.push(userId + "@gmail.com");
@@ -33,7 +45,7 @@ export default function AddEventMenu({ render, setRender }) {
       const addEventPromise = await member.map(async(gmail, index) => {
         const studentId = gmail.split("@")[0].toLowerCase();
         const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-event` : "/api/add-event";
-        return axios.post(url, { studentId, title, description, group, startTime, endTime }).then(response => {}).catch(error => console.log(error));
+        return axios.post(url, { studentId, title, description, group, startTime, endTime, downloadURL, fileName }).then(response => {}).catch(error => console.log(error));
       })
       Promise.all(addEventPromise).then(response => {
         console.log(response);
@@ -48,6 +60,12 @@ export default function AddEventMenu({ render, setRender }) {
   const onChange = (e, value, setValue) => {
     e.preventDefault();
     setValue(e.target.value);
+  };
+
+  const onChangeFile = (e) => {
+    console.log(e);
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
   };
 
   const onClickChoose = (value) => {
@@ -100,7 +118,7 @@ export default function AddEventMenu({ render, setRender }) {
           </div>
           <div className="flex flex-row justify-center items-start gap-[2.5vw]">
             <input
-              className="h-[16.5vh] w-[25vw] rounded-md"
+              className="h-[24vh] w-[25vw] rounded-md"
               type="text"
               placeholder=" Mô tả"
               onChange={(e) => onChange(e, description, setDescription)}
@@ -118,6 +136,11 @@ export default function AddEventMenu({ render, setRender }) {
                 type="datetime-local"
                 onChange={(e) => onChange(e, endTime, setEndTime)}
                 required
+              />
+              <input
+                className="h-[7vh] w-[25vw]"
+                type="file"
+                onChange={(e) => onChangeFile(e)}
               />
             </div>
           </div>

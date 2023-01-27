@@ -63,7 +63,14 @@ export default function DisplayEvent({ render, setRender, display, setDisplay}) 
                     second: "2-digit",
                     hour12: true
                 })}</div>
-                {/*<div className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center">ID bài tập: {display.id}</div>*/}
+                {display.downloadURL !== "" && 
+                    <div 
+                        className="h-[7.5vh] w-[35vw] bg-[#F9F9F9] rounded-md flex justify-center items-center"
+                        onClick={() => window.open(display.downloadURL)}
+                    >
+                        {display.fileName}
+                    </div>
+                }   
                 <button 
                     className="h-[7.5vh] w-[25vw] bg-[#DC3535] rounded-md flex justify-center items-center"
                     onClick={() => onClickDelete()}

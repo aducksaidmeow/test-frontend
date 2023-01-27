@@ -69,7 +69,7 @@ export default function Login() {
             transition={{ duration: 1 }}
             exit={{ x: -1000 }}
           >
-              WEBSITE BÁO THỨC HỌC TẬP
+              LỊCH NHẮC NHỞ HỌC TẬP
           </motion.div> } 
         </AnimatePresence>
         <AnimatePresence onExitComplete={() => navigate(link)}>

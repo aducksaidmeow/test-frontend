@@ -9,7 +9,6 @@ import Login from './components/login'
 import AddInfo from './components/addInfo'
 import StudentMain from './components/student/studentMain'
 import TeacherMain from './components/teacher/teacherMain'
-import AdminMain from  './components/admin/adminMain'
 import AboutUs from './components/aboutUs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,7 +21,6 @@ root.render(
         <Route path="/add-info" element={ <AddInfo /> } />
         <Route path="/student-calendar" element={ <StudentMain /> } />
         <Route path="/teacher-calendar" element={ <TeacherMain /> } />
-        <Route path="/admin-calendar" element={ <AdminMain /> } />
       </Routes>
     </GoogleOAuthProvider>
   </HashRouter>

@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/test-frontend/static/css/main.e1f5071a.css",
-    "main.js": "/test-frontend/static/js/main.fffe2163.js",
+    "main.css": "/test-frontend/static/css/main.3666a52c.css",
+    "main.js": "/test-frontend/static/js/main.627277bc.js",
     "static/js/787.cda612ba.chunk.js": "/test-frontend/static/js/787.cda612ba.chunk.js",
     "static/media/login-picture.png": "/test-frontend/static/media/login-picture.e6676e3fbcd021b1d556.png",
     "static/media/student.png": "/test-frontend/static/media/student.6c1ac38ef12a5ef67f2b.png",
     "static/media/teacher.png": "/test-frontend/static/media/teacher.599b2fdff5b836b7425f.png",
+    "static/media/Philosopher-BoldItalic.otf": "/test-frontend/static/media/Philosopher-BoldItalic.45ba1480965a8593d9f3.otf",
+    "static/media/Philosopher-Italic.otf": "/test-frontend/static/media/Philosopher-Italic.f2a1994ba5bb013256e2.otf",
+    "static/media/Philosopher-Regular.otf": "/test-frontend/static/media/Philosopher-Regular.614532315eab8329cdab.otf",
+    "static/media/Philosopher-Bold.otf": "/test-frontend/static/media/Philosopher-Bold.af6cfee3080bf63a5202.otf",
     "static/media/add-group.png": "/test-frontend/static/media/add-group.4f89400e19d25d36ee95.png",
     "static/media/add-event.png": "/test-frontend/static/media/add-event.6207040b16b82a95f28f.png",
     "static/media/cross.png": "/test-frontend/static/media/cross.ffdafe3f0eceab67b7c2.png",
     "static/media/logo.svg": "/test-frontend/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/test-frontend/index.html",
-    "main.e1f5071a.css.map": "/test-frontend/static/css/main.e1f5071a.css.map",
-    "main.fffe2163.js.map": "/test-frontend/static/js/main.fffe2163.js.map",
+    "main.3666a52c.css.map": "/test-frontend/static/css/main.3666a52c.css.map",
+    "main.627277bc.js.map": "/test-frontend/static/js/main.627277bc.js.map",
     "787.cda612ba.chunk.js.map": "/test-frontend/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1f5071a.css",
-    "static/js/main.fffe2163.js"
+    "static/css/main.3666a52c.css",
+    "static/js/main.627277bc.js"
   ]
 }

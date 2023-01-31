@@ -12,6 +12,26 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: 'Philosopher-Regular';
+  src: url(./fonts/Philosopher-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Philosopher-Bold';
+  src: url(./fonts/Philosopher-Bold.otf);
+}
+
+@font-face {
+  font-family: 'Philosopher-BoldItalic';
+  src: url(./fonts/Philosopher-BoldItalic.otf);
+}
+
+@font-face {
+  font-family: 'Philosopher-Italic';
+  src: url(./fonts/Philosopher-Italic.otf);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 
 @tailwind base;

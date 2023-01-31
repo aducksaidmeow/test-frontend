@@ -18,7 +18,11 @@ module.exports = {
       },
       fontFamily: {
         'nerko-one': ['"Nerko One"', 'cursive'],
-      }
+        'Philosopher-Regular': ["Philosopher-Regular", 'sans-serif'],
+        'Philosopher-BoldItalic': ["Philosopher-BoldItalic", 'sans-serif'],
+        'Philosopher-Italic': ["Philosopher-Italic", 'sans-serif'],
+        'Philosopher-Bold': ["Philosopher-Bold", 'sans-serif']
+      },
     },
   },
   plugins: [

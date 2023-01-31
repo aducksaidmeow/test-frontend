@@ -12,7 +12,7 @@ export default function LoadingScreen() {
 
 
     return (
-        <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] text-[40px] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]">
+        <div className="h-[90vh] w-[90vw] flex justify-center items-center font-['consolas'] text-[40px] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF] rounded-lg">
             {loadingDisplay[index]}
         </div>
     );

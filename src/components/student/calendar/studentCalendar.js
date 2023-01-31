@@ -36,11 +36,7 @@ export default function StudentCalendar({ render, setRender, display, setDisplay
 
   return (
     <div 
-      className="h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF]"
-      initial={{ x: 1000 }}
-      animate={{ x: 0 }}
-      transition={{ duration: 1 }}
-      exit={{ scale: 0 }}
+      className="h-[90vh] w-[90vw] font-['consolas'] shadow-2xl overflow-y-auto scrollbar-hide bg-[#FFFFFF] rounded-lg"
     >
       <FullCalendar
         plugins={[dayGridPlugin, googleCalendarPlugin]}

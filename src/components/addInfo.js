@@ -36,7 +36,7 @@ export default function AddInfo() {
           className="col-start-1 col-span-9 row-start-2 row-span-4 flex justify-center items-center gap-[5vw]"
           initial={{ x: 1000 }}
           animate={{ x: 0 }}
-          exit={{ x: 1000 }}
+          exit={{ x: -1200 }}
           transition={{ duration: 1 }}
         >
           {/*Student*/}

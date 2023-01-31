@@ -63,7 +63,7 @@ export default function Login() {
       <div className="col-start-1 col-span-3 row-start-2 row-span-3 flex flex-col justify-center items-center">
         <AnimatePresence>
           {!remove && <motion.div 
-            className="text-[45px] font-bold font-['consolas']"
+            className="text-[45px] font-bold font-Philosopher-Regular"
             initial={{ x: -1000 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}

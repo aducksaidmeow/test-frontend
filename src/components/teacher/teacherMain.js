@@ -7,7 +7,6 @@ import InstructionButton from "./instruction/instructionButton";
 import DisplayEvent from "./displayEvent/displayEvent"
 import AddEventMenu from "./addEvent/addEventMenu";
 import AddGroupMenu from "./addGroup/addGroupMenu"
-import RemoveEventMenu from "./removeEvent/removeEventMenu";
 import LoadingScreen from "./loadingScreen/loadingScreen";
 import DisplayGroupButton from "./displayGroup/displayGroupButton";
 import DisplayGroupMenu from "./displayGroup/displayGroupMenu";
@@ -41,7 +40,16 @@ export default function TeacherMain() {
                     <DisplayGroupButton render={render} setRender={setRender} />
                     <InstructionButton render={render} setRender={setRender} />
                 </div>
-                <div className="col-start-2 col-span-15 flex justify-center items-center">
+                <div className="col-start-2 col-span-15 flex justify-start items-center flex-col gap-[1vh] m-[1vh]">
+                    <button 
+                        className="font-Philosopher-Regular text-[25px]" 
+                        onClick={() => {
+                            const newRender = {...render};
+                            for(const value in newRender) newRender[value] = false;
+                            newRender.calendar = true;
+                            setRender(newRender);
+                        }}
+                    >Lịch bài tập</button>
                     {render.calendar && 
                         <TeacherCalendar render={render} setRender={setRender} display={display} setDisplay={setDisplay}/>
                     }

@@ -1,8 +1,4 @@
 import { useState } from "react";
-import RemoveEventButton from "./removeEvent/removeEventButton";
-import RemoveEventMenu from "./removeEvent/removeEventMenu";
-import InstructionButton from "./instruction/instructionButton";
-import InstructionMenu from "./instruction/instructionMenu";
 import StudentCalendar from "./calendar/studentCalendar";
 import DisplayEvent from "./displayEvent/displayEvent";
 import LoadingScreen from "./loadingScreen/loadingScreen";
@@ -29,7 +25,16 @@ export default function TeacherMain() {
                     <RemoveEventButton render={render} setRender={setRender} />
                     <InstructionButton render={render} setRender={setRender} />
                 </div>*/}
-                <div className="col-start-1 col-span-16 flex justify-center items-center">
+                <div className="col-start-1 col-span-16 flex justify-start items-center flex-col gap-[1vh] m-[1vh]">
+                    <button 
+                        className="font-Philosopher-Regular text-[25px]" 
+                        onClick={() => {
+                            const newRender = {...render};
+                            for(const value in newRender) newRender[value] = false;
+                            newRender.calendar = true;
+                            setRender(newRender);
+                        }}
+                    >Lịch bài tập</button>
                     {render.calendar && 
                         <StudentCalendar render={render} setRender={setRender} display={display} setDisplay={setDisplay}/>
                     }

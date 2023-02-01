@@ -11,15 +11,50 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [remove, setRemove] = useState(false);
   const [link, setLink] = useState("");
+  const [error, setError] = useState("");
 
   const loginCall = useGoogleLogin({
     flow: "auth-code",
     scope: "https://www.googleapis.com/auth/calendar",
-    onSuccess: (codeResponse) => {
+    onSuccess: async(codeResponse) => {
+      console.log(codeResponse);
+
+      if (!codeResponse.scope.includes("https://www.googleapis.com/auth/calendar")) {
+        setError("Web cần quyền chỉnh sửa và xóa lịch");
+        return;
+      } else {
+        setError("");
+      }
+
       setLoading(true);
-      const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-token` : "/api/get-token";
+
+      const getTokenUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-token` : "/api/get-token";
       const code = codeResponse.code;
-      axios.post(url, { code }).then((response) => {
+      const response1 = await axios.post(getTokenUrl, { code }).catch((error) => { console.log(error); return; });
+
+      const refreshToken = response1.data.refresh_token;
+      const decodedIdToken = jwt_decode(response1.data.id_token);
+      const email = decodedIdToken.email;
+      const userId = email.split("@")[0];
+      localStorage.setItem("email", email);
+      localStorage.setItem("userId", userId);
+      const initUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/init` : "/api/init";
+      const response2 = await axios.post(initUrl, { userId, refreshToken }).catch((error) => { console.log(error); return; });
+
+      const getRoleUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-role` : "/api/get-role";
+      const response3 = await axios.post(getRoleUrl, { userId }).catch((error) => { console.log(error); return; });
+      const role = response3.data;
+      localStorage.setItem("role", role);
+
+      const addAclUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-acl` : "/api/add-acl";
+      const response4 = await axios.post(addAclUrl, { userId }).catch((error) => { console.log(error); return; });
+
+      setLoading(false);
+      if (role === "") setLink("/add-info");
+      else if (role === "student") setLink("/student-calendar");
+      else if (role === "teacher") setLink("/teacher-calendar");
+      setRemove(true);
+      /*axios.post(url, { code }).then((response) => {
         const refreshToken = response.data.refresh_token;
         const decodedIdToken = jwt_decode(response.data.id_token);
         const email = decodedIdToken.email;
@@ -43,12 +78,41 @@ export default function Login() {
             }).catch((error) => console.log(error.message));
           }).catch((error) => console.log(error.message));
         }).catch((error) => console.log(error.message));
-      }).catch((error) => console.log(error.message));
+      }).catch((error) => console.log(error.message));*/
     },
   });
 
   return (
-    <div className="h-screen grid grid-rows-6 grid-cols-6 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 overflow-y-auto overflow-x-auto scrollbar-hide">
+    <div className="h-screen grid relative grid-rows-6 grid-cols-6 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 overflow-y-auto overflow-x-auto scrollbar-hide">
+      <AnimatePresence>
+        {error !== "" && 
+          <motion.div 
+            className="absolute h-[5vh] w-screen flex justify-center items-center mt-[1vh]"
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            exit={{ y: -100 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="bg-[#EB455F] h-[100%] w-[35%] flex justify-center items-center rounded-lg font-Philosopher-Regular text-[20px]">
+              {error}
+            </div>
+          </motion.div>          
+        }
+        {loading && 
+          <motion.div
+            className="absolute h-[5vh] w-screen flex justify-center items-center mt-[1vh]"
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            exit={{ y: -100 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="bg-[#B3FFAE] h-[100%] w-[30%] flex justify-center items-center rounded-lg font-Philosopher-Regular text-[20px]">
+              Đang xử lí
+            </div>
+          </motion.div>
+
+        }
+      </AnimatePresence>
       <AnimatePresence>
         {!remove && <motion.div 
           className="col-start-4 col-span-3 row-start-2 row-span-5 flex items-end"

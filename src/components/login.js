@@ -27,6 +27,7 @@ export default function Login() {
       }
 
       setLoading(true);
+      
 
       const getTokenUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-token` : "/api/get-token";
       const code = codeResponse.code;
@@ -54,31 +55,6 @@ export default function Login() {
       else if (role === "student") setLink("/student-calendar");
       else if (role === "teacher") setLink("/teacher-calendar");
       setRemove(true);
-      /*axios.post(url, { code }).then((response) => {
-        const refreshToken = response.data.refresh_token;
-        const decodedIdToken = jwt_decode(response.data.id_token);
-        const email = decodedIdToken.email;
-        const userId = email.split("@")[0];
-        localStorage.setItem("email", email);
-        localStorage.setItem("userId", userId);
-        const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/init` : "/api/init";
-        axios.post(url, { userId, refreshToken }).then((response) => {
-          const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/get-role` : "/api/get-role";
-          axios.post(url, { userId }).then((response) => {
-            const role = response.data;
-            localStorage.setItem("role", role);
-            const url = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_API_URL}/api/add-acl` : "/api/add-acl";
-            axios.post(url, { userId }).then((response) => {
-              setLoading(false);
-              if (role === "") setLink("/add-info");
-              else if (role === "student") setLink("/student-calendar");
-              else if (role === "teacher") setLink("teacher-calendar");
-              else if (role === "admin") setLink("/admin-calendar");
-              setRemove(true);
-            }).catch((error) => console.log(error.message));
-          }).catch((error) => console.log(error.message));
-        }).catch((error) => console.log(error.message));
-      }).catch((error) => console.log(error.message));*/
     },
   });
 
@@ -121,19 +97,19 @@ export default function Login() {
           transition={{ duration: 1 }}
           exit={{ x: 1000 }}
         >
-          <img src={loginPicture} />
+          <img src={loginPicture} alt=""/>
         </motion.div> }
       </AnimatePresence>
       <div className="col-start-1 col-span-3 row-start-2 row-span-3 flex flex-col justify-center items-center">
         <AnimatePresence>
           {!remove && <motion.div 
-            className="text-[45px] font-bold font-Philosopher-Regular"
+            className="text-[4vw] font-bold font-Philosopher-Regular"
             initial={{ x: -1000 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
             exit={{ x: -1000 }}
           >
-              LỊCH NHẮC NHỞ HỌC TẬP
+              Homework Reminder 
           </motion.div> } 
         </AnimatePresence>
         <AnimatePresence onExitComplete={() => navigate(link)}>
@@ -145,7 +121,7 @@ export default function Login() {
           >
             <button className="
               h-[10vh] w-[24vw] bg-[#FFFBE9] border-[#FB2576] border-2 shadow-xl flex justify-center items-center mt-[5vh]
-              font-['consolas'] text-[20px] text-[#FB2576]
+              font-['consolas'] text-[1.5vw] text-[#FB2576]
               hover:bg-[#EA047E] hover:text-[#FFFBE9] hover:scale-[1.05] hover:text-[20px]
               transition ease-in-out duration-150"
               onClick={() => loginCall()}
@@ -154,7 +130,7 @@ export default function Login() {
             </button>
             <button className="
               h-[10vh] w-[24vw] bg-[#FFFBE9] border-[#FFBF00] border-2 shadow-xl flex justify-center items-center mt-[5vh]
-              font-['consolas'] text-[20px] text-[#FFBF00]
+              font-['consolas'] text-[1.5vw] text-[#FFBF00]
               hover:bg-[#FFB200] hover:text-[#FFFBE9] hover:scale-[1.05] hover:text-[20px]
               transition ease-in-out duration-150"
               onClick={() => { setLink("/about-us"); setRemove(true); }}

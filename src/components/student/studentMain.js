@@ -25,8 +25,8 @@ export default function TeacherMain() {
                     <RemoveEventButton render={render} setRender={setRender} />
                     <InstructionButton render={render} setRender={setRender} />
                 </div>*/}
-                <div className="col-start-1 col-span-16 flex justify-start items-center flex-col gap-[1vh] m-[1vh]">
-                    <button 
+                <div className="col-start-1 col-span-16 flex justify-start items-center flex-col gap-[1vh] m-[1vh], pt-[5vh]">
+                    {/*<button 
                         className="font-Philosopher-Regular text-[25px]" 
                         onClick={() => {
                             const newRender = {...render};
@@ -34,7 +34,7 @@ export default function TeacherMain() {
                             newRender.calendar = true;
                             setRender(newRender);
                         }}
-                    >Lịch bài tập</button>
+                    >Lịch bài tập</button>*/}
                     {render.calendar && 
                         <StudentCalendar render={render} setRender={setRender} display={display} setDisplay={setDisplay}/>
                     }
